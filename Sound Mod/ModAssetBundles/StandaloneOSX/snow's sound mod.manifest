@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 1066433241
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b05e7ba2f182cf8112924f63b9aa1588
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0dac77019aea06e486d031f76cf02974
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 463027472, guid: 3cde37892b4f7594bbbc3ac6c74ecab7, type: 3}
+- Class: 114
+  Script: {fileID: 148421896, guid: 0ae1b6aafcdc6bc46b35491a5c18721e, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/_ModAssets_/Sound Mod.prefab
+- Assets/cannonsound.mp3
+- Assets/_ModAssets_/ModManifest.xml
+- Assets/_ModAssets_/Snow'sSoundMod-Assembly-CSharp.dll.bytes
+Dependencies: []

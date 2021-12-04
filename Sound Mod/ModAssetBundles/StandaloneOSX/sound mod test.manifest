@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 276092020
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a6171902e5d980367924de0bc492166f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 585f0105299d2f04341ace36d20fcb69
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 148421896, guid: 0ae1b6aafcdc6bc46b35491a5c18721e, type: 3}
+- Class: 114
+  Script: {fileID: 463027472, guid: 3cde37892b4f7594bbbc3ac6c74ecab7, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/_ModAssets_/Sound Mod.prefab
+- Assets/_ModAssets_/SoundModTest-Assembly-CSharp.dll.bytes
+- Assets/cannonsound.mp3.mp3
+- Assets/_ModAssets_/ModManifest.xml
+Dependencies: []
