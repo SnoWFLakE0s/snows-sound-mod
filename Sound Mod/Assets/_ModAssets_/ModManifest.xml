@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ModManifest buildID="7e45f9b8-da25-45ad-af66-f1089168b767">
-  <Mod name="Snow's Sound Mod" author="SnoWFLakE0s" versionMajor="0" versionMinor="2" loadPriority="1000" lastUpdated="2021-12-04T08:04:13.6658734Z" apiVersion="1.0.0.0" description="A set of sound effect replacements to make a game a little more enjoyable.">
+<ModManifest buildID="666351be-bffc-44d7-94e9-60c4fdf18f7a">
+  <Mod name="Snows Sound Mod" author="SnoWFLakE0s" versionMajor="0" versionMinor="2" loadPriority="1000" lastUpdated="2021-12-04T08:35:53.8426631Z" apiVersion="1.0.0.0" description="A mod to replace some suboptimal sound effects.">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>
@@ -12,7 +12,7 @@
     </Assets>
     <MaterialShaderMap />
     <Assemblies>
-      <Assembly name="Snow'sSoundMod-Assembly-CSharp.dll" path="Assets/_ModAssets_/Snow'sSoundMod-Assembly-CSharp.dll.bytes" isProjectAssembly="true" />
+      <Assembly name="SnowsSoundMod-Assembly-CSharp.dll" path="Assets/_ModAssets_/SnowsSoundMod-Assembly-CSharp.dll.bytes" isProjectAssembly="true" />
     </Assemblies>
     <Sections>
       <SimplePlanesMod apiVersion="1.0.0.0">
