@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ModManifest buildID="038a2250-cd22-4b71-90d6-4d4d9a4bd4ad">
-  <Mod name="Snows Sound Mod" author="SnoWFLakE0s" versionMajor="0" versionMinor="2" loadPriority="1000" lastUpdated="2021-12-05T02:35:02.8317648Z" apiVersion="1.0.0.0" description="A mod to replace some suboptimal sound effects.">
+<ModManifest buildID="0a85204f-fe48-4ef4-a045-2639e07edb37">
+  <Mod name="Snows Sound Mod" author="SnoWFLakE0s" versionMajor="0" versionMinor="2" loadPriority="1000" lastUpdated="2021-12-05T08:54:40.1039007Z" apiVersion="1.0.0.0" description="A mod to replace some suboptimal sound effects.">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>

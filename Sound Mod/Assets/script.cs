@@ -23,7 +23,8 @@ public class script : MonoBehaviour
     void Update()
     {
         if (LaunchSound != null) {
-            DetectCannonFiring();   
+            DetectCannonFiring();
+            SoundOverlap();   
         }        
     }
 
