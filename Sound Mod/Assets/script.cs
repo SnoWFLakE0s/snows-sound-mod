@@ -6,44 +6,54 @@ public class script : MonoBehaviour
 {
     //Variables
     private AudioSource[] AudioSources;
+    private AudioSource LaunchSound;
+    private AudioSource NewLaunchSound;
     public AudioClip MyClip;
-    private bool HasInstantiated;
+    private float LastAudioTime;
+    private float CurrentAudioTime;
+    private bool CannonFiredAgain;
     
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("GetAudioSources",1);
+        Invoke("ReplaceCannonSound",1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ServiceProvider.Instance.PlayerAircraft.Controls.FireWeapons == true) {
-            DetectCannonFiring();
-        }
-        if (ServiceProvider.Instance.PlayerAircraft.Controls.FireWeapons == false) {
-            HasInstantiated = false;
-        }
+        if (LaunchSound != null) {
+            DetectCannonFiring();   
+        }        
     }
 
-    private void GetAudioSources() {
+    private void ReplaceCannonSound() {
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources) {
             if (AS.name == "LaunchSound") {
             AS.clip = MyClip;
             }
         }
+        LaunchSound = GameObject.Find("LaunchSound")?.GetComponent<AudioSource>();
     }
 
     private void DetectCannonFiring() {
-        AudioSource LaunchSound = GameObject.Find("LaunchSound").GetComponent<AudioSource>();
-        if (LaunchSound.isPlaying == true) {
-            if (HasInstantiated == false) {
-                GameObject NewAudioSource = Instantiate(GameObject.Find("LaunchSound"));
-                NewAudioSource.GetComponent<AudioSource>().Play();
+        CurrentAudioTime = LaunchSound.time;
+        if ((LastAudioTime > CurrentAudioTime) && LaunchSound.isPlaying) {
+            CannonFiredAgain = true;
+            Debug.Log("Cannon fired");
+        } else {
+            CannonFiredAgain = false;
+        }
+        LastAudioTime = CurrentAudioTime;
+    }
 
-                HasInstantiated = true;
-            }
+    private void SoundOverlap() {
+        if (CannonFiredAgain) {
+            LaunchSound.time = LastAudioTime;
+            LaunchSound.Play();
+            GameObject NewLaunchSound = Instantiate(GameObject.Find("LaunchSound"));
+            NewLaunchSound.GetComponent<AudioSource>().Play();
         }
     }
 }
