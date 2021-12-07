@@ -8,10 +8,14 @@ public class script : MonoBehaviour
     private AudioSource[] AudioSources;
     private AudioSource LaunchSound;
     private AudioSource NewLaunchSound;
-    public AudioClip MyClip;
+    public AudioClip AutoCannonSound;
+    public AudioClip LargeCannonSound;
+    public AudioClip ArtillerySound;
+    public AudioClip NavalGunSound;
     private float LastAudioTime;
     private float CurrentAudioTime;
     private bool CannonFiredAgain;
+    private float CannonCaliber;
     
     // Start is called before the first frame update
     void Start()
@@ -32,7 +36,16 @@ public class script : MonoBehaviour
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources) {
             if (AS.name == "LaunchSound") {
-            AS.clip = MyClip;
+                CannonCaliber = LaunchSound.transform.parent.Find("Base").localScale.x;
+                if (CannonCaliber < 0.02) {
+                    AS.clip = AutoCannonSound;
+                } else if (CannonCaliber > 0.02 && CannonCaliber < 0.15) {
+                    AS.clip = LargeCannonSound;
+                } else if (CannonCaliber > 0.15 && CannonCaliber < 0.2) {
+                    AS.clip = ArtillerySound;
+                } else if (CannonCaliber > 0.2) {
+                    AS.clip = NavalGunSound;
+                }
             }
         }
         LaunchSound = GameObject.Find("LaunchSound")?.GetComponent<AudioSource>();

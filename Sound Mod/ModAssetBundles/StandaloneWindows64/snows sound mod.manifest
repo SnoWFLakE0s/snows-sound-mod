@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4078570270
+CRC: 3459671231
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f1b66d1ac8f135f74929eab3a13bec00
+    Hash: 0bb6839d5ba0f4632db7057d3cf4ec13
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0dac77019aea06e486d031f76cf02974
@@ -26,7 +26,10 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/_ModAssets_/Sound Mod.prefab
-- Assets/cannonsound.mp3
+- Assets/navalcannon.mp3
+- Assets/artillerycannon.wav
+- Assets/autocannon.wav
 - Assets/_ModAssets_/SnowsSoundMod-Assembly-CSharp.dll.bytes
+- Assets/largecannon.wav
 - Assets/_ModAssets_/ModManifest.xml
 Dependencies: []
