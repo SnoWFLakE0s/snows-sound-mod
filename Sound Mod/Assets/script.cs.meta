@@ -4,7 +4,10 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - MyClip: {instanceID: 0}
+  - AutoCannonSound: {fileID: 8300000, guid: 2dc5533b07386c342a8861a265417719, type: 3}
+  - LargeCannonSound: {fileID: 8300000, guid: 4540d172591ba8040b231efc7f3d14a5, type: 3}
+  - ArtillerySound: {fileID: 8300000, guid: 3969fc00fce063b4793aadf876a8772c, type: 3}
+  - NavalGunSound: {fileID: 8300000, guid: dafcf9c1fe5da0b41877e4d4ad33da22, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

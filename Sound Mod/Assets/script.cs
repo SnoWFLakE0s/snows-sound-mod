@@ -33,22 +33,27 @@ public class script : MonoBehaviour
     }
 
     private void ReplaceCannonSound() {
+        Debug.Log("Replacing Cannon Sound");
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources) {
             if (AS.name == "LaunchSound") {
+                LaunchSound = AS;
                 CannonCaliber = LaunchSound.transform.parent.Find("Base").localScale.x;
-                if (CannonCaliber < 0.02) {
+                if (CannonCaliber <= 0.06) {
+                    //Up to 30mm is "autocannon"
                     AS.clip = AutoCannonSound;
-                } else if (CannonCaliber > 0.02 && CannonCaliber < 0.15) {
+                } else if (CannonCaliber > 0.06 && CannonCaliber <= 0.25) {
+                    //Up to 125mm
                     AS.clip = LargeCannonSound;
-                } else if (CannonCaliber > 0.15 && CannonCaliber < 0.2) {
+                } else if (CannonCaliber > 0.25 && CannonCaliber <= 0.4) {
+                    //Up to 200mm
                     AS.clip = ArtillerySound;
-                } else if (CannonCaliber > 0.2) {
+                } else if (CannonCaliber > 0.4) {
+                    //200mm+
                     AS.clip = NavalGunSound;
                 }
             }
         }
-        LaunchSound = GameObject.Find("LaunchSound")?.GetComponent<AudioSource>();
     }
 
     private void DetectCannonFiring() {
@@ -68,6 +73,7 @@ public class script : MonoBehaviour
             LaunchSound.Play();
             GameObject NewLaunchSound = Instantiate(GameObject.Find("LaunchSound"));
             NewLaunchSound.GetComponent<AudioSource>().Play();
+            Debug.Log("SFX was still playing. Overlapping sound.");
         }
     }
 }
