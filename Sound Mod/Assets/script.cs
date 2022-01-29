@@ -20,20 +20,21 @@ public class script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("ReplaceCannonSound",1);
+        Invoke("ReplaceCannonSound",0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (LaunchSound != null) {
+            SoundFallOff();
             DetectCannonFiring();
             SoundOverlap();   
         }        
     }
 
     private void ReplaceCannonSound() {
-        Debug.Log("Replacing Cannon Sound");
+        Debug.Log("Replacing Cannon Sounds");
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources) {
             if (AS.name == "LaunchSound") {
@@ -59,12 +60,24 @@ public class script : MonoBehaviour
     private void DetectCannonFiring() {
         CurrentAudioTime = LaunchSound.time;
         if ((LastAudioTime > CurrentAudioTime) && LaunchSound.isPlaying) {
-            CannonFiredAgain = true;
             Debug.Log("Cannon fired");
+            Debug.Log(LaunchSound.volume);
+            CannonFiredAgain = true;
         } else {
             CannonFiredAgain = false;
         }
         LastAudioTime = CurrentAudioTime;
+    }
+
+    private void SoundFallOff() {
+        AudioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource AS in AudioSources) {
+            if (AS.name == "LaunchSound") {
+                LaunchSound = AS;
+                float Distance = Vector3.Distance(AS.transform.position, Camera.main.transform.position);
+                AS.volume = 1 - Mathf.Sqrt(Distance) / 10;
+            }
+        }
     }
 
     private void SoundOverlap() {
@@ -73,7 +86,7 @@ public class script : MonoBehaviour
             LaunchSound.Play();
             GameObject NewLaunchSound = Instantiate(GameObject.Find("LaunchSound"));
             NewLaunchSound.GetComponent<AudioSource>().Play();
-            Debug.Log("SFX was still playing. Overlapping sound.");
+            Debug.Log("Cannon SFX was still playing. Overlapping sound.");
         }
     }
 }
