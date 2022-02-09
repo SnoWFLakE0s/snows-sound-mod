@@ -8,85 +8,102 @@ public class script : MonoBehaviour
     private AudioSource[] AudioSources;
     private AudioSource LaunchSound;
     private AudioSource NewLaunchSound;
+    public AudioClip MuteSound;
+
     public AudioClip AutoCannonSound;
     public AudioClip LargeCannonSound;
     public AudioClip ArtillerySound;
     public AudioClip NavalGunSound;
-    private float LastAudioTime;
-    private float CurrentAudioTime;
-    private bool CannonFiredAgain;
+
+    private bool LastWasPlaying;
+    private bool CannonFired;
+    private int LastAudioTime;
+    private int CurrentAudioTime;
+    private int ShotsFired;
+
     private float CannonCaliber;
-    
+        
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("ReplaceCannonSound",0.5f);
+        Invoke("MuteCannonSound",0.5f);
+        Invoke("NewCannonSound",0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (LaunchSound != null) {
-            SoundFallOff();
+        if ((LaunchSound != null) && (Time.timeScale != 0)) {
             DetectCannonFiring();
-            SoundOverlap();   
-        }        
+        }
+
+        if (CannonFired == true) {
+            PlayCannonSound();
+            ShotsFired++;
+            Debug.Log("Cannon fired " + ShotsFired.ToString() + " times");
+        } 
     }
 
-    private void ReplaceCannonSound() {
-        Debug.Log("Replacing Cannon Sounds");
+    // Swaps out default cannon sound for a mute, soundless 250ms clip.
+    private void MuteCannonSound() {
+        Debug.Log("Muting default cannon sounds");
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources) {
             if (AS.name == "LaunchSound") {
                 LaunchSound = AS;
+                AS.clip = MuteSound;
+            }
+        }
+    }
+
+    private void NewCannonSound() {
+        AudioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource AS in AudioSources) {
+            if (AS.name == "LaunchSound") {
+                LaunchSound = AS;
+                NewLaunchSound = AS.gameObject.AddComponent<AudioSource>();
+                NewLaunchSound.spatialBlend = 1.0f;
+
                 CannonCaliber = LaunchSound.transform.parent.Find("Base").localScale.x;
                 if (CannonCaliber <= 0.06) {
                     //Up to 30mm is "autocannon"
-                    AS.clip = AutoCannonSound;
+                    NewLaunchSound.clip = AutoCannonSound;
                 } else if (CannonCaliber > 0.06 && CannonCaliber <= 0.25) {
                     //Up to 125mm
-                    AS.clip = LargeCannonSound;
+                    NewLaunchSound.clip = LargeCannonSound;
                 } else if (CannonCaliber > 0.25 && CannonCaliber <= 0.4) {
                     //Up to 200mm
-                    AS.clip = ArtillerySound;
+                    NewLaunchSound.clip = ArtillerySound;
                 } else if (CannonCaliber > 0.4) {
                     //200mm+
-                    AS.clip = NavalGunSound;
+                    NewLaunchSound.clip = NavalGunSound;
                 }
             }
         }
     }
 
     private void DetectCannonFiring() {
-        CurrentAudioTime = LaunchSound.time;
-        if ((LastAudioTime > CurrentAudioTime) && LaunchSound.isPlaying) {
-            Debug.Log("Cannon fired");
-            Debug.Log(LaunchSound.volume);
-            CannonFiredAgain = true;
-        } else {
-            CannonFiredAgain = false;
-        }
-        LastAudioTime = CurrentAudioTime;
-    }
-
-    private void SoundFallOff() {
-        AudioSources = FindObjectsOfType<AudioSource>();
-        foreach (AudioSource AS in AudioSources) {
-            if (AS.name == "LaunchSound") {
-                LaunchSound = AS;
-                float Distance = Vector3.Distance(AS.transform.position, Camera.main.transform.position);
-                AS.volume = 1 - Mathf.Sqrt(Distance) / 10;
+            CurrentAudioTime = LaunchSound.timeSamples;
+            if (LaunchSound.isPlaying && !LastWasPlaying) {
+                Debug.Log("Audio started");
+                CannonFired = true;
             }
-        }
+            else if ((LastAudioTime > CurrentAudioTime) && (LaunchSound.isPlaying)) {
+                Debug.Log("Audio overlapped");
+                CannonFired = true;
+            } 
+            else {
+                CannonFired = false;
+            }
+
+            LastWasPlaying = LaunchSound.isPlaying;
+            LastAudioTime = CurrentAudioTime;
     }
 
-    private void SoundOverlap() {
-        if (CannonFiredAgain) {
-            LaunchSound.time = LastAudioTime;
-            LaunchSound.Play();
-            GameObject NewLaunchSound = Instantiate(GameObject.Find("LaunchSound"));
-            NewLaunchSound.GetComponent<AudioSource>().Play();
-            Debug.Log("Cannon SFX was still playing. Overlapping sound.");
-        }
+    private void PlayCannonSound() {
+        float Distance = Vector3.Distance(LaunchSound.transform.parent.position, Camera.main.transform.position);
+        NewLaunchSound.PlayDelayed(Distance/343);
+        //NewLaunchSound.PlayOneShot(AutoCannonSound,1.0f);
     }
+
 }

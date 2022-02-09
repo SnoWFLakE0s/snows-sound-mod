@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ModManifest buildID="4a38cb50-da19-4587-a67f-a37e9eaeaf79">
-  <Mod name="Snows Sound Mod" author="SnoWFLakE0s" versionMajor="0" versionMinor="3" loadPriority="1000" lastUpdated="2022-01-29T13:12:52.6790913Z" apiVersion="1.0.0.0" description="A mod to replace some suboptimal sound effects.">
+<ModManifest buildID="60471616-dadb-468b-9ac0-d5120d593cc7">
+  <Mod name="Snows Sound Mod" author="SnoWFLakE0s" versionMajor="0" versionMinor="3" loadPriority="1000" lastUpdated="2022-02-09T04:17:23.2634165Z" apiVersion="1.0.0.0" description="A mod to replace some suboptimal sound effects.">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>
@@ -8,6 +8,8 @@
       <GameObject name="Sound Mod" path="Assets/_ModAssets_/Sound Mod.prefab" />
     </GameObjects>
     <Assets>
+      <Asset path="Assets/250-milliseconds-of-silence.mp3" />
+      <Asset path="Assets/5-seconds-of-silence.mp3" />
       <Asset path="Assets/artillerycannon.wav" />
       <Asset path="Assets/autocannon.wav" />
       <Asset path="Assets/cannonsound.mp3" />

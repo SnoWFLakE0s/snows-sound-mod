@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 354405216
+CRC: 3724305579
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5d668837936da449c9d9d339943f02c5
+    Hash: 5f43353cff5505c33c5a159af34ee9c8
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0dac77019aea06e486d031f76cf02974
@@ -26,6 +26,7 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/_ModAssets_/Sound Mod.prefab
+- Assets/250-milliseconds-of-silence.mp3
 - Assets/navalcannon.mp3
 - Assets/artillerycannon.wav
 - Assets/autocannon.wav
