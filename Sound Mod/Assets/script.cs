@@ -29,8 +29,8 @@ public class script : MonoBehaviour
         //Firing Detection
         public bool CannonShotState;
         public bool LastWasPlaying;
-        public bool LastAudioTime;
-        public bool CurrentAudioTime;
+        public int LastAudioTime;
+        public int CurrentAudioTime;
     }
         
     // Swaps out default cannon sound for a mute, soundless 250ms clip. Then creates replacement AudioSources to link the audioclips to.
@@ -63,8 +63,11 @@ public class script : MonoBehaviour
                 
                 //Adding to reference lists
                 LaunchSoundTracking cannon = new LaunchSoundTracking();
-                    LaunchSoundTracking.OriginalLaunchSound = LaunchSound;
-                    LaunchSoundTracking.ReplacementLaunchSound = NewLaunchSound;
+                //Changing properties of the new object
+                cannon.OriginalLaunchSound = LaunchSound;
+                cannon.ReplacementLaunchSound = NewLaunchSound;
+                //Adding the new object to the list
+                cannonSounds.Add(cannon);
 
             }
         }
