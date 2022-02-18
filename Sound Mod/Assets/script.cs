@@ -8,65 +8,47 @@ public class script : MonoBehaviour
     private AudioSource[] AudioSources;
     private AudioSource LaunchSound;
     private AudioSource NewLaunchSound;
-    public AudioClip MuteSound;
 
+    //Audioclips
+    public AudioClip MuteSound;
     public AudioClip AutoCannonSound;
     public AudioClip LargeCannonSound;
     public AudioClip ArtillerySound;
     public AudioClip NavalGunSound;
 
-    private bool LastWasPlaying;
-    private bool CannonFired;
-    private int LastAudioTime;
-    private int CurrentAudioTime;
+    List<LaunchSoundTracking> cannonSounds = new List<LaunchSoundTracking>();
     private int ShotsFired;
 
     private float CannonCaliber;
+
+    class LaunchSoundTracking 
+    {
+        //Reference AudioSources
+        public AudioSource OriginalLaunchSound;
+        public AudioSource ReplacementLaunchSound;
+        //Firing Detection
+        public bool CannonShotState;
+        public bool LastWasPlaying;
+        public bool LastAudioTime;
+        public bool CurrentAudioTime;
+    }
         
-    // Start is called before the first frame update
-    void Start()
-    {
-        Invoke("MuteCannonSound",0.5f);
-        Invoke("NewCannonSound",0.5f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if ((LaunchSound != null) && (Time.timeScale != 0)) {
-            DetectCannonFiring();
-        }
-
-        if (CannonFired == true) {
-            PlayCannonSound();
-            ShotsFired++;
-            Debug.Log("Cannon fired " + ShotsFired.ToString() + " times");
-        } 
-    }
-
-    // Swaps out default cannon sound for a mute, soundless 250ms clip.
-    private void MuteCannonSound() {
-        Debug.Log("Muting default cannon sounds");
+    // Swaps out default cannon sound for a mute, soundless 250ms clip. Then creates replacement AudioSources to link the audioclips to.
+    private void ReplaceCannonSound() {
+        Debug.Log("Muting default cannon sounds.");
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources) {
             if (AS.name == "LaunchSound") {
                 LaunchSound = AS;
                 AS.clip = MuteSound;
-            }
-        }
-    }
 
-    private void NewCannonSound() {
-        AudioSources = FindObjectsOfType<AudioSource>();
-        foreach (AudioSource AS in AudioSources) {
-            if (AS.name == "LaunchSound") {
-                LaunchSound = AS;
+                Debug.Log("Creating new replacement AudioSource.");
                 NewLaunchSound = AS.gameObject.AddComponent<AudioSource>();
                 NewLaunchSound.spatialBlend = 1.0f;
 
                 CannonCaliber = LaunchSound.transform.parent.Find("Base").localScale.x;
                 if (CannonCaliber <= 0.06) {
-                    //Up to 30mm is "autocannon"
+                    //Up to 30mm
                     NewLaunchSound.clip = AutoCannonSound;
                 } else if (CannonCaliber > 0.06 && CannonCaliber <= 0.25) {
                     //Up to 125mm
@@ -78,32 +60,63 @@ public class script : MonoBehaviour
                     //200mm+
                     NewLaunchSound.clip = NavalGunSound;
                 }
+                
+                //Adding to reference lists
+                LaunchSoundTracking cannon = new LaunchSoundTracking();
+                    LaunchSoundTracking.OriginalLaunchSound = LaunchSound;
+                    LaunchSoundTracking.ReplacementLaunchSound = NewLaunchSound;
+
             }
         }
     }
 
     private void DetectCannonFiring() {
-            CurrentAudioTime = LaunchSound.timeSamples;
-            if (LaunchSound.isPlaying && !LastWasPlaying) {
-                Debug.Log("Audio started");
-                CannonFired = true;
-            }
-            else if ((LastAudioTime > CurrentAudioTime) && (LaunchSound.isPlaying)) {
-                Debug.Log("Audio overlapped");
-                CannonFired = true;
-            } 
-            else {
-                CannonFired = false;
-            }
+        foreach (LaunchSoundTracking cannon in cannonSounds) {
+            cannon.CurrentAudioTime = cannon.OriginalLaunchSound.timeSamples;
+                if (cannon.OriginalLaunchSound.isPlaying && !cannon.LastWasPlaying) {
+                    Debug.Log("SFX started.");
+                    cannon.CannonShotState = true;
+                }
+                else if ((cannon.LastAudioTime > cannon.CurrentAudioTime) && (cannon.OriginalLaunchSound.isPlaying)) {
+                    Debug.Log("SFX overlapped.");
+                    cannon.CannonShotState = true;
+                } 
+                else {
+                    cannon.CannonShotState = false;
+                }
 
-            LastWasPlaying = LaunchSound.isPlaying;
-            LastAudioTime = CurrentAudioTime;
+                cannon.LastWasPlaying = cannon.OriginalLaunchSound.isPlaying;
+                cannon.LastAudioTime = cannon.CurrentAudioTime;
+        }
+    }
+
+    //Coroutine for PlayOneShot delay
+    IEnumerator PlayAfterDelay(AudioSource source, float time, AudioClip clip)
+    {
+        yield return new WaitForSeconds(time);
+        source.PlayOneShot(clip);
     }
 
     private void PlayCannonSound() {
-        float Distance = Vector3.Distance(LaunchSound.transform.parent.position, Camera.main.transform.position);
-        NewLaunchSound.PlayDelayed(Distance/343);
-        //NewLaunchSound.PlayOneShot(AutoCannonSound,1.0f);
+        foreach (LaunchSoundTracking cannon in cannonSounds) {
+            if (cannon.CannonShotState == true) {
+                float soundDelay = Vector3.Distance(LaunchSound.transform.parent.position, Camera.main.transform.position) / 343;
+                StartCoroutine(PlayAfterDelay(cannon.ReplacementLaunchSound, soundDelay, cannon.ReplacementLaunchSound.clip));
+            }
+        }
+    }
+
+    void Start()
+    {
+        Invoke("ReplaceCannonSound",1.0f);
+    }
+
+    void Update()
+    {
+        if ((LaunchSound != null) && (Time.timeScale != 0)) {
+            DetectCannonFiring();
+        }
+        PlayCannonSound();
     }
 
 }

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ModManifest buildID="60471616-dadb-468b-9ac0-d5120d593cc7">
-  <Mod name="Snows Sound Mod" author="SnoWFLakE0s" versionMajor="0" versionMinor="3" loadPriority="1000" lastUpdated="2022-02-09T04:17:23.2634165Z" apiVersion="1.0.0.0" description="A mod to replace some suboptimal sound effects.">
+<ModManifest buildID="b6e32e19-010f-48b5-8e72-aa2b380f4e68">
+  <Mod name="Snows Sound Mod" author="SnoWFLakE0s" versionMajor="0" versionMinor="3" loadPriority="1000" lastUpdated="2022-02-12T22:25:34.1763669Z" apiVersion="1.0.0.0" description="A mod to replace some suboptimal sound effects.">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>
@@ -15,6 +15,7 @@
       <Asset path="Assets/cannonsound.mp3" />
       <Asset path="Assets/largecannon.wav" />
       <Asset path="Assets/navalcannon.mp3" />
+      <Asset path="Assets/nullsound.mp3" />
     </Assets>
     <MaterialShaderMap />
     <Assemblies>
