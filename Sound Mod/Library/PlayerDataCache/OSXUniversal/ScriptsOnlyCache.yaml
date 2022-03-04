@@ -449,7 +449,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: efd8adb9db00ae69be23a03a20a82e9e
+      Hash: 4b6603df236e0c91b0ed550da2ea4ab4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: script
@@ -624,4 +624,4 @@ ScriptsOnlyBuild:
   platform: 2
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/joshu/AppData/Local/Temp/bde2abdf-509b-4826-ac14-93142ccf4677/Mod.exe
+  playerPath: C:/Users/JOSHUA~1/AppData/Local/Temp/7b484e44-9cc1-4806-9fdd-b05d105074b4/Mod.exe

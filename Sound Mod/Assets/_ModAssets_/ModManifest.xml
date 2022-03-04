@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ModManifest buildID="e828093c-3f7c-4133-95c2-e8c338317c52">
-  <Mod name="Snows Sound Mod" author="SnoWFLakE0s" versionMajor="0" versionMinor="3" loadPriority="1000" lastUpdated="2022-02-18T17:42:18.3053055Z" apiVersion="1.0.0.0" description="A mod to replace some suboptimal sound effects.">
+<ModManifest buildID="849e0e58-483b-490a-b0b7-fdda79c07779">
+  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="0" versionMinor="9" loadPriority="1000" lastUpdated="2022-03-02T09:49:55.8818647Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>
@@ -8,18 +8,49 @@
       <GameObject name="Sound Mod" path="Assets/_ModAssets_/Sound Mod.prefab" />
     </GameObjects>
     <Assets>
-      <Asset path="Assets/250-milliseconds-of-silence.mp3" />
-      <Asset path="Assets/5-seconds-of-silence.mp3" />
+      <Asset path="Assets/100mm.wav" />
+      <Asset path="Assets/12.7mm.mp3" />
+      <Asset path="Assets/125mm.wav" />
+      <Asset path="Assets/150mm.mp3" />
+      <Asset path="Assets/155mm.mp3" />
+      <Asset path="Assets/175mm.wav" />
+      <Asset path="Assets/200mm.mp3" />
+      <Asset path="Assets/250mm.wav" />
+      <Asset path="Assets/30mm.wav" />
+      <Asset path="Assets/50mm.mp3" />
+      <Asset path="Assets/75mm.mp3" />
       <Asset path="Assets/artillerycannon.wav" />
       <Asset path="Assets/autocannon.wav" />
-      <Asset path="Assets/cannonsound.mp3" />
+      <Asset path="Assets/CannonSFX/100mm.wav" />
+      <Asset path="Assets/CannonSFX/12.7mm.mp3" />
+      <Asset path="Assets/CannonSFX/125mm.wav" />
+      <Asset path="Assets/CannonSFX/150mm.mp3" />
+      <Asset path="Assets/CannonSFX/175mm.wav" />
+      <Asset path="Assets/CannonSFX/200mm.mp3" />
+      <Asset path="Assets/CannonSFX/250mm.wav" />
+      <Asset path="Assets/CannonSFX/30mm.wav" />
+      <Asset path="Assets/CannonSFX/50mm.mp3" />
+      <Asset path="Assets/CannonSFX/75mm.mp3" />
       <Asset path="Assets/largecannon.wav" />
       <Asset path="Assets/navalcannon.mp3" />
+      <Asset path="Assets/NewSFX/BombSFX/BombExplosion_Close.wav" />
+      <Asset path="Assets/NewSFX/BombSFX/BombExplosion_Far.wav" />
+      <Asset path="Assets/NewSFX/CannonSFX/100mm.wav" />
+      <Asset path="Assets/NewSFX/CannonSFX/12.7mm.mp3" />
+      <Asset path="Assets/NewSFX/CannonSFX/125mm.wav" />
+      <Asset path="Assets/NewSFX/CannonSFX/150mm.mp3" />
+      <Asset path="Assets/NewSFX/CannonSFX/175mm.wav" />
+      <Asset path="Assets/NewSFX/CannonSFX/200mm.mp3" />
+      <Asset path="Assets/NewSFX/CannonSFX/250mm.wav" />
+      <Asset path="Assets/NewSFX/CannonSFX/30mm.wav" />
+      <Asset path="Assets/NewSFX/CannonSFX/50mm.mp3" />
+      <Asset path="Assets/NewSFX/CannonSFX/75mm.mp3" />
+      <Asset path="Assets/NewSFX/GunSFX/WingGun_Loop.wav" />
       <Asset path="Assets/nullsound.mp3" />
     </Assets>
     <MaterialShaderMap />
     <Assemblies>
-      <Assembly name="SnowsSoundMod-Assembly-CSharp.dll" path="Assets/_ModAssets_/SnowsSoundMod-Assembly-CSharp.dll.bytes" isProjectAssembly="true" />
+      <Assembly name="SoundPlus-Assembly-CSharp.dll" path="Assets/_ModAssets_/SoundPlus-Assembly-CSharp.dll.bytes" isProjectAssembly="true" />
     </Assemblies>
     <Sections>
       <SimplePlanesMod apiVersion="1.0.0.0">
