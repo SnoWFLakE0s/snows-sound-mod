@@ -209,7 +209,7 @@ MonoBehaviour:
   LargeNavalGunClip: {fileID: 8300000, guid: d335ae25485ce8f4bb225842b9de46ce, type: 3}
   NewBombExplosion_Close: {fileID: 8300000, guid: 53d228ea9a6567d4498cccb5066d5f10, type: 3}
   NewBombExplosion_Far: {fileID: 8300000, guid: 3a9885299d46a4546951083c56016a39, type: 3}
-  NewWingGunClip: {fileID: 8300000, guid: b89c6076ca52ebf40bfcc11bcd4d0cf0, type: 3}
+  NewWingGunClip: {fileID: 8300000, guid: 359b6f77a61b9944e81193a6fc1f6c4f, type: 3}
 --- !u!114 &223974228
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ModManifest buildID="849e0e58-483b-490a-b0b7-fdda79c07779">
-  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="0" versionMinor="9" loadPriority="1000" lastUpdated="2022-03-02T09:49:55.8818647Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
+<ModManifest buildID="982a5806-54df-442e-bd63-1f03a788bcc6">
+  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="0" versionMinor="9" loadPriority="1000" lastUpdated="2022-03-07T06:22:27.2306516Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>
@@ -45,6 +45,8 @@
       <Asset path="Assets/NewSFX/CannonSFX/30mm.wav" />
       <Asset path="Assets/NewSFX/CannonSFX/50mm.mp3" />
       <Asset path="Assets/NewSFX/CannonSFX/75mm.mp3" />
+      <Asset path="Assets/NewSFX/GunSFX/NewGunClip.mp3" />
+      <Asset path="Assets/NewSFX/GunSFX/NewWingGun.mp3" />
       <Asset path="Assets/NewSFX/GunSFX/WingGun_Loop.wav" />
       <Asset path="Assets/nullsound.mp3" />
     </Assets>

@@ -9,8 +9,6 @@ public class script : MonoBehaviour
     //Variables
     private AudioSource[] AudioSources;
 
-     private float time = 0.0f;
-
     /*
     Naming Conventions:
 
@@ -83,8 +81,9 @@ public class script : MonoBehaviour
         //Reference AudioSources
         public AudioSource OriginalGunSound;
         public AudioSource ReplacementGunSound;
-        //Firing Detection (only need to check original sfx .isPlaying)
+        //Firing Detection 
         public bool ShotState;
+        public float ShotTimer;
         //Gun Properties (use RPS to play the clip as many times as needed)
         public float roundsPerSecond;
     }
@@ -170,13 +169,6 @@ public class script : MonoBehaviour
         }
     }
 
-    //Coroutine for PlayOneShot delay
-    IEnumerator PlayAfterDelay(AudioSource source, float time, AudioClip clip)
-    {
-        yield return new WaitForSeconds(time);
-        source.PlayOneShot(clip);
-    }
-
     private void PlayCannonSound() {
         foreach (LaunchSoundController cannon in LaunchSoundList) {
             if (cannon.ShotState == true) {
@@ -200,7 +192,7 @@ public class script : MonoBehaviour
         }
     }
 
-    private void ReplaceWingGunSound() {
+    private void ReplaceGunSound() {
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources) {
             if (AS.name == "Wing Gun") {
@@ -211,7 +203,7 @@ public class script : MonoBehaviour
 
                 //NewWingGun sound properties.
                 NewWingGunSound.spatialBlend = 1.0f;
-                NewWingGunSound.dopplerLevel = 0.1f;
+                NewWingGunSound.dopplerLevel = 0.0f;
 
                 NewWingGunSound.clip = NewWingGunClip;
 
@@ -227,7 +219,7 @@ public class script : MonoBehaviour
                 foreach (var modifier in part.Modifiers) {
                     if (modifier.StateElementName == "Gun.State") {
                         wingGunXml = modifier.GenerateStateXml();
-                        gun.roundsPerSecond = float.Parse(wingGunXml.Attribute("roundsPerSecond").ToString());
+                        gun.roundsPerSecond = float.Parse(wingGunXml.Attribute("roundsPerSecond").Value);
                         break;
                     }
                 }
@@ -240,18 +232,17 @@ public class script : MonoBehaviour
 
     private void DetectGunFiring() {
         foreach (WingGunSoundController gun in WingGunSoundList) {
-            //I think this needs to be updated to be a property of the WGSC class, so that each gun has its respective timer. Probably.
-            time += Time.deltaTime;
+            //ShotTimer tracks the time passed
+            gun.ShotTimer += Time.deltaTime;
         
-            //This probably also needs a check for if the gun SFX is playing.
-            if (time >= 1/gun.roundsPerSecond) {
-                time = time - 1/gun.roundsPerSecond;
-        
+            //Checks if enough time has passed between shots AND if the gun is actually "firing"
+            //Needs fix for the shots double-playing
+            if ((gun.ShotTimer > 1/gun.roundsPerSecond) && (gun.OriginalGunSound.isPlaying)) {
+                gun.ShotTimer = 0;
                 gun.ShotState = true;
             } else {
                 gun.ShotState = false;
             }
-            //This needs to be switched on only every time cycle of the firing rate
         }
     }
 
@@ -264,7 +255,16 @@ public class script : MonoBehaviour
         }
     }
 
+    //Coroutine for PlayOneShot delay
+    IEnumerator PlayAfterDelay(AudioSource source, float time, AudioClip clip)
+    {
+        yield return new WaitForSeconds(time);
+        source.PlayOneShot(clip);
+    }
+
     /*
+    //Testing function to print out all Audiosource names
+
     private void AudioSourceTest() {
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources) {

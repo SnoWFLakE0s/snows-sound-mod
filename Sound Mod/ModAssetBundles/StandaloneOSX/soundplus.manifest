@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2055835961
+CRC: 887725225
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 37a42a30dffcae5613e225f2ee638995
+    Hash: b213e621e01c0a0d54062ea256317281
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0dac77019aea06e486d031f76cf02974
@@ -31,9 +31,9 @@ Assets:
 - Assets/NewSFX/CannonSFX/250mm.wav
 - Assets/NewSFX/CannonSFX/125mm.wav
 - Assets/nullsound.mp3
-- Assets/NewSFX/GunSFX/WingGun_Loop.wav
 - Assets/NewSFX/CannonSFX/175mm.wav
 - Assets/NewSFX/CannonSFX/75mm.mp3
+- Assets/NewSFX/GunSFX/NewGunClip.mp3
 - Assets/NewSFX/BombSFX/BombExplosion_Close.wav
 - Assets/NewSFX/CannonSFX/100mm.wav
 - Assets/NewSFX/CannonSFX/30mm.wav
