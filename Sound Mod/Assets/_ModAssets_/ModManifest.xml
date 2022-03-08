@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ModManifest buildID="982a5806-54df-442e-bd63-1f03a788bcc6">
-  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="0" versionMinor="9" loadPriority="1000" lastUpdated="2022-03-07T06:22:27.2306516Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
+<ModManifest buildID="1a1a4c8e-b151-4606-822b-5edf524154c0">
+  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="0" versionMinor="9" loadPriority="1000" lastUpdated="2022-03-08T06:02:07.2460476Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>

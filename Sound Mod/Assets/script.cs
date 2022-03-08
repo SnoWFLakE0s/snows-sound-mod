@@ -233,7 +233,11 @@ public class script : MonoBehaviour
     private void DetectGunFiring() {
         foreach (WingGunSoundController gun in WingGunSoundList) {
             //ShotTimer tracks the time passed
-            gun.ShotTimer += Time.deltaTime;
+            if (gun.OriginalGunSound.isPlaying) {
+                gun.ShotTimer += Time.deltaTime;
+            } else if (gun.OriginalGunSound.isPlaying == false) {
+                gun.ShotTimer = 0;
+            }
         
             //Checks if enough time has passed between shots AND if the gun is actually "firing"
             //Needs fix for the shots double-playing
