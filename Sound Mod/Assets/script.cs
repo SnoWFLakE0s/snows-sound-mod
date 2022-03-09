@@ -33,7 +33,12 @@ public class script : MonoBehaviour
     private AudioSource WingGunSound;
     private AudioSource NewWingGunSound;
 
-    //private AudioSource MinigunSound;
+    //Minigun AudioSources
+    private AudioSource MinigunSound;
+    private AudioSource NewMinigunSound;
+
+    //Flare AudioSources
+    private AudioSource FlareSound;
 
     //General AudioClip
     public AudioClip MuteClip;
@@ -59,8 +64,17 @@ public class script : MonoBehaviour
     //WingGun Audioclips
     public AudioClip NewWingGunClip;
 
+    //Minigun Audioclips
+    public AudioClip NewMinigunClip_Start;
+    public AudioClip NewMinigunClip_Loop;
+    public AudioClip NewMinigunClip_End;
+
+    //Flare Audioclips
+    public AudioClip NewFlareClip;
+
     List<LaunchSoundController> LaunchSoundList = new List<LaunchSoundController>();
     List<WingGunSoundController> WingGunSoundList = new List<WingGunSoundController>();
+    List<MinigunSoundController> MinigunSoundList = new List<MinigunSoundController>();
 
     private float CannonCaliber;
 
@@ -86,6 +100,18 @@ public class script : MonoBehaviour
         public float ShotTimer;
         //Gun Properties (use RPS to play the clip as many times as needed)
         public float roundsPerSecond;
+    }
+    
+    class MinigunSoundController
+    {
+        //Reference AudioSources
+        public AudioSource OriginalMinigunSound;
+        public AudioSource ReplacementMinigunSound;
+        //Firing Detection
+        public int ShotState;
+        public bool LastWasPlaying;
+        public int LastAudioTime;
+        public int CurrentAudioTime;
     }
         
     // Swaps out default cannon sound for a mute, soundless 250ms clip. Then creates replacement AudioSources to link the audioclips to.
@@ -172,7 +198,7 @@ public class script : MonoBehaviour
     private void PlayCannonSound() {
         foreach (LaunchSoundController cannon in LaunchSoundList) {
             if (cannon.ShotState == true) {
-                float soundDelay = Vector3.Distance(LaunchSound.transform.parent.position, Camera.main.transform.position) / 343;
+                float soundDelay = Vector3.Distance(cannon.OriginalLaunchSound.transform.parent.position, Camera.main.transform.position) / 343;
                 StartCoroutine(PlayAfterDelay(cannon.ReplacementLaunchSound, soundDelay, cannon.ReplacementLaunchSound.clip));
             }
         }
@@ -240,7 +266,6 @@ public class script : MonoBehaviour
             }
         
             //Checks if enough time has passed between shots AND if the gun is actually "firing"
-            //Needs fix for the shots double-playing
             if ((gun.ShotTimer > 1/gun.roundsPerSecond) && (gun.OriginalGunSound.isPlaying)) {
                 gun.ShotTimer = 0;
                 gun.ShotState = true;
@@ -253,8 +278,84 @@ public class script : MonoBehaviour
     private void PlayGunSound() {
         foreach (WingGunSoundController gun in WingGunSoundList) {
             if (gun.ShotState == true) {
-                float soundDelay = Vector3.Distance(WingGunSound.transform.parent.position, Camera.main.transform.position) / 343;
+                float soundDelay = Vector3.Distance(gun.OriginalGunSound.transform.parent.position, Camera.main.transform.position) / 343;
                 StartCoroutine(PlayAfterDelay(gun.ReplacementGunSound, soundDelay, gun.ReplacementGunSound.clip));
+            }
+        }
+    }
+
+    private void ReplaceMinigunSound() {
+        AudioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource AS in AudioSources) {
+            if (AS.name == "Minigun") {
+                MinigunSound = AS;
+                AS.clip = MuteClip;
+
+                NewMinigunSound = AS.gameObject.AddComponent<AudioSource>();
+
+                //NewWingGun sound properties.
+                NewMinigunSound.spatialBlend = 1.0f;
+                NewMinigunSound.dopplerLevel = 0.0f;
+
+                //Adding to reference lists
+                MinigunSoundController minigun = new MinigunSoundController();
+                //Changing properties of the new object
+                minigun.OriginalMinigunSound = MinigunSound;
+                minigun.ReplacementMinigunSound = NewMinigunSound;
+
+                //Adding the new object to the list
+                MinigunSoundList.Add(minigun);
+            }
+        }
+    }
+
+    private void DetectMinigunFiring() {
+        foreach (MinigunSoundController minigun in MinigunSoundList) {
+            if ((minigun.CurrentAudioTime > minigun.LastAudioTime) && !minigun.LastWasPlaying) {
+                //gun started firing, since it was not firing last frame, but now is
+                minigun.ShotState = 1;
+            } else if ((minigun.CurrentAudioTime > minigun.LastAudioTime) && minigun.LastWasPlaying) {
+                //gun is loop-firing, since it was last firing and still is firing
+                minigun.ShotState = 2;
+            } else if (!minigun.OriginalMinigunSound.isPlaying && minigun.LastWasPlaying) {
+                //gun stopped firing
+                minigun.ShotState = 3;
+            } else {
+                minigun.ShotState = 0;
+            }
+
+            minigun.LastWasPlaying = minigun.OriginalMinigunSound.isPlaying;
+            minigun.LastAudioTime = minigun.CurrentAudioTime;
+        }
+    }
+
+    private void PlayMinigunSound() {
+        foreach (MinigunSoundController minigun in MinigunSoundList) {
+            switch (minigun.ShotState)
+            {
+                case 1:
+                   minigun.ReplacementMinigunSound.clip = NewMinigunClip_Loop;
+                   break;
+                case 2:
+                    minigun.ReplacementMinigunSound.clip = NewMinigunClip_Loop;
+                    break;
+                case 3:
+                    minigun.ReplacementMinigunSound.clip = NewMinigunClip_Loop;
+                    break; 
+            }
+            if (minigun.ShotState != 0) {
+                float soundDelay = Vector3.Distance(minigun.OriginalMinigunSound.transform.parent.position, Camera.main.transform.position) / 343;
+                StartCoroutine(PlayAfterDelay(minigun.ReplacementMinigunSound, soundDelay, minigun.ReplacementMinigunSound.clip));
+            }
+        }
+    }
+
+    private void ReplaceFlareSound() {
+        AudioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource AS in AudioSources) {
+            if (AS.name == "Countermeasure Dispenser") {
+                FlareSound = AS;
+                AS.clip = NewFlareClip;
             }
         }
     }
@@ -266,21 +367,20 @@ public class script : MonoBehaviour
         source.PlayOneShot(clip);
     }
 
-    /*
     //Testing function to print out all Audiosource names
-
     private void AudioSourceTest() {
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources) {
             Debug.Log(AS.name);
         }
     }
-    */
 
     void Start()
     {
         Invoke("ReplaceCannonSound",1.0f);
         Invoke("ReplaceGunSound",1.0f);
+        Invoke("ReplaceMinigunSound",1.0f);
+        Invoke("ReplaceFlareSound",1.0f);
         Invoke("ReplaceBombExplosion",1.0f);
         //Invoke("AudioSourceTest",1.0f);
     }
@@ -294,6 +394,10 @@ public class script : MonoBehaviour
         if ((WingGunSound != null) && (Time.timeScale != 0)) {
             DetectGunFiring();
             PlayGunSound();
+        }
+        if ((MinigunSound != null) && (Time.timeScale != 0)) {
+            DetectMinigunFiring();
+            PlayMinigunSound();
         }
         if ((BombExplosionSound != null) && (Time.timeScale != 0)) {
             ReplaceBombExplosion();

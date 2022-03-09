@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3967351408
+CRC: 95574329
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4628e1b01ed4950f3bd780af2a9e5ef7
+    Hash: 071a33b798b67378f3368c078003ed31
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0dac77019aea06e486d031f76cf02974
@@ -25,6 +25,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/NewSFX/MinigunSFX/NewMinigunClip_End.wav
 - Assets/NewSFX/BombSFX/BombExplosion_Far.wav
 - Assets/_ModAssets_/Sound Mod.prefab
 - Assets/NewSFX/CannonSFX/12.7mm.mp3
@@ -37,9 +38,12 @@ Assets:
 - Assets/NewSFX/BombSFX/BombExplosion_Close.wav
 - Assets/NewSFX/CannonSFX/100mm.wav
 - Assets/NewSFX/CannonSFX/30mm.wav
+- Assets/NewSFX/FlareSFX/NewFlareClip.mp3
 - Assets/NewSFX/CannonSFX/150mm.mp3
+- Assets/NewSFX/MinigunSFX/NewMinigunClip_Start.wav
 - Assets/_ModAssets_/SoundPlus-Assembly-CSharp.dll.bytes
 - Assets/NewSFX/CannonSFX/50mm.mp3
+- Assets/NewSFX/MinigunSFX/NewMinigunClip_Loop.wav
 - Assets/_ModAssets_/ModManifest.xml
 - Assets/NewSFX/CannonSFX/200mm.mp3
 Dependencies: []
