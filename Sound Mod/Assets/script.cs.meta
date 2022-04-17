@@ -18,9 +18,7 @@ MonoImporter:
   - NewBombExplosion_Close: {fileID: 8300000, guid: 53d228ea9a6567d4498cccb5066d5f10, type: 3}
   - NewBombExplosion_Far: {fileID: 8300000, guid: 3a9885299d46a4546951083c56016a39, type: 3}
   - NewWingGunClip: {fileID: 8300000, guid: 359b6f77a61b9944e81193a6fc1f6c4f, type: 3}
-  - NewMinigunClip_Start: {fileID: 8300000, guid: 1b964f2dc68e0c346a2f15ab82522dc0, type: 3}
-  - NewMinigunClip_Loop: {fileID: 8300000, guid: b563a54a0b810854d94fb2d26953ba0f, type: 3}
-  - NewMinigunClip_End: {fileID: 8300000, guid: 87c6e47cd327788429ddd3baad397de1, type: 3}
+  - NewMinigunClip: {fileID: 8300000, guid: e59182fe912ca9647bd0648a7a8e47dd, type: 3}
   - NewFlareClip: {fileID: 8300000, guid: 7930b81e8dae71546a24721fb0ed4e5e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}

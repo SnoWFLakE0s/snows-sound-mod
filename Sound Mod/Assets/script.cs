@@ -103,15 +103,12 @@ public class script : MonoBehaviour
     }
     
     class MinigunSoundController
-    {
+    {   
         //Reference AudioSources
         public AudioSource OriginalMinigunSound;
         public AudioSource ReplacementMinigunSound;
-        //Firing Detection
-        public int ShotState;
+        //Firing Detection 
         public bool LastWasPlaying;
-        public int LastAudioTime;
-        public int CurrentAudioTime;
     }
         
     // Swaps out default cannon sound for a mute, soundless 250ms clip. Then creates replacement AudioSources to link the audioclips to.
@@ -209,7 +206,7 @@ public class script : MonoBehaviour
         foreach (AudioSource AS in AudioSources) {
             if (AS.name == "BombExplosionSound") {
                 BombExplosionSound = AS;
-                if (Vector3.Distance(BombExplosionSound.transform.parent.position, Camera.main.transform.position) > 1000) {
+                if (Vector3.Distance(BombExplosionSound.transform.parent.position, Camera.main.transform.position) > 500) {
                     AS.clip = NewBombExplosion_Far;
                 } else {
                     AS.clip = NewBombExplosion_Close;
@@ -293,7 +290,7 @@ public class script : MonoBehaviour
 
                 NewMinigunSound = AS.gameObject.AddComponent<AudioSource>();
 
-                //NewWingGun sound properties.
+                //NewMinigun sound properties.
                 NewMinigunSound.spatialBlend = 1.0f;
                 NewMinigunSound.dopplerLevel = 0.0f;
 
@@ -311,44 +308,16 @@ public class script : MonoBehaviour
 
     private void DetectMinigunFiring() {
         foreach (MinigunSoundController minigun in MinigunSoundList) {
-            if ((minigun.CurrentAudioTime > minigun.LastAudioTime) && !minigun.LastWasPlaying) {
-                //gun started firing, since it was not firing last frame, but now is
-                minigun.ShotState = 1;
-            } else if ((minigun.CurrentAudioTime > minigun.LastAudioTime) && minigun.LastWasPlaying) {
-                //gun is loop-firing, since it was last firing and still is firing
-                minigun.ShotState = 2;
-            } else if (!minigun.OriginalMinigunSound.isPlaying && minigun.LastWasPlaying) {
-                //gun stopped firing
-                minigun.ShotState = 3;
-            } else {
-                minigun.ShotState = 0;
-            }
-
-            minigun.LastWasPlaying = minigun.OriginalMinigunSound.isPlaying;
-            minigun.LastAudioTime = minigun.CurrentAudioTime;
-        }
-    }
-
-    private void PlayMinigunSound() {
-        foreach (MinigunSoundController minigun in MinigunSoundList) {
-            switch (minigun.ShotState)
-            {
-                case 1:
-                   minigun.ReplacementMinigunSound.clip = NewMinigunClip_Loop;
-                   break;
-                case 2:
-                    minigun.ReplacementMinigunSound.clip = NewMinigunClip_Loop;
-                    break;
-                case 3:
-                    minigun.ReplacementMinigunSound.clip = NewMinigunClip_Loop;
-                    break; 
-            }
-            if (minigun.ShotState != 0) {
+            //Checking for "started firing"
+            if (!minigun.LastWasPlaying && minigun.OriginalMinigunSound.isPlaying) {
+                minigun.ReplacementMinigunSound.clip = NewMinigunClip_Start;
                 float soundDelay = Vector3.Distance(minigun.OriginalMinigunSound.transform.parent.position, Camera.main.transform.position) / 343;
                 StartCoroutine(PlayAfterDelay(minigun.ReplacementMinigunSound, soundDelay, minigun.ReplacementMinigunSound.clip));
             }
         }
     }
+
+    
 
     private void ReplaceFlareSound() {
         AudioSources = FindObjectsOfType<AudioSource>();
@@ -397,7 +366,6 @@ public class script : MonoBehaviour
         }
         if ((MinigunSound != null) && (Time.timeScale != 0)) {
             DetectMinigunFiring();
-            PlayMinigunSound();
         }
         if ((BombExplosionSound != null) && (Time.timeScale != 0)) {
             ReplaceBombExplosion();
