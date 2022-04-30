@@ -153,11 +153,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7683c0961c51d4fb54c6ccd00f27f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   MuteSound: {fileID: 8300000, guid: cb62fe34196e052459b5175ad742f041, type: 3}
   AutoCannonSound: {fileID: 8300000, guid: 2dc5533b07386c342a8861a265417719, type: 3}
   LargeCannonSound: {fileID: 8300000, guid: 4540d172591ba8040b231efc7f3d14a5, type: 3}
   ArtillerySound: {fileID: 8300000, guid: 3969fc00fce063b4793aadf876a8772c, type: 3}
   NavalGunSound: {fileID: 8300000, guid: dafcf9c1fe5da0b41877e4d4ad33da22, type: 3}
+=======
+  MuteClip: {fileID: 8300000, guid: cb62fe34196e052459b5175ad742f041, type: 3}
+  Falloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.00025369637
+      outSlope: -0.00025369637
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 1
+    - serializedVersion: 3
+      time: 500
+      value: 0.3
+      inSlope: -0.0007285139
+      outSlope: -0.0007285139
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13271545
+    - serializedVersion: 3
+      time: 1513.5729
+      value: 0.051496625
+      inSlope: -0.00003980424
+      outSlope: -0.00003980424
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.24350607
+      outWeight: 0.15641813
+    - serializedVersion: 3
+      time: 3000
+      value: 0
+      inSlope: -0.000068998146
+      outSlope: -0.000068998146
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.63331896
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rolloffMode: 2
+  HeavyGunClip: {fileID: 8300000, guid: e8289d15a4fb39c4b83fd0c604756dfc, type: 3}
+  AutoCannonClip: {fileID: 8300000, guid: 2912761590b716d49a2adf224f3e103c, type: 3}
+  SmallCannonClip: {fileID: 8300000, guid: 442b0ffef84c8a04aa104c9e7f398ea1, type: 3}
+  MediumCannonClip: {fileID: 8300000, guid: 116a229279123a6438f070ed0511a4c6, type: 3}
+  LargeCannonClip: {fileID: 8300000, guid: 3e9c7859fb091e349a3ec61d1ae1ea86, type: 3}
+  ArtilleryClip: {fileID: 8300000, guid: 95cf3a0aeb416d642b34782a90117a66, type: 3}
+  MediumArtilleryClip: {fileID: 8300000, guid: 242df58f32efbc64db5ec67ce535bd22, type: 3}
+  LargeArtilleryClip: {fileID: 8300000, guid: 6b57aa75677bb8543a572b835f8ea063, type: 3}
+  NavalGunClip: {fileID: 8300000, guid: 443ac7c6dac2d38448c9fba1aa5eed05, type: 3}
+  LargeNavalGunClip: {fileID: 8300000, guid: d335ae25485ce8f4bb225842b9de46ce, type: 3}
+  NewBombExplosion_Close: {fileID: 8300000, guid: 53d228ea9a6567d4498cccb5066d5f10, type: 3}
+  NewBombExplosion_Far: {fileID: 8300000, guid: 3a9885299d46a4546951083c56016a39, type: 3}
+  NewWingGunClip: {fileID: 8300000, guid: 359b6f77a61b9944e81193a6fc1f6c4f, type: 3}
+  NewMinigunClip_Start: {fileID: 8300000, guid: ca3ced02f3e16044fa6e0ebb9ba2a7f4, type: 3}
+  NewMinigunClip_Loop: {fileID: 8300000, guid: f326a6b749dec344e8c92861c0d68e30, type: 3}
+  NewMinigunClip_End: {fileID: 8300000, guid: 9e0e494351a742547b1afcad0848d26d, type: 3}
+  NewFlareClip: {fileID: 8300000, guid: 7930b81e8dae71546a24721fb0ed4e5e, type: 3}
+>>>>>>> Stashed changes
 --- !u!114 &223974228
 MonoBehaviour:
   m_ObjectHideFlags: 0
