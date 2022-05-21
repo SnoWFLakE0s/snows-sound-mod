@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Jundroo.SimplePlanes.ModTools.Interfaces.Parts;
+using Assets.SimplePlanesReflection.Assets.Scripts.Parts.Modifiers;
 using System.Xml.Linq;
 
 public class script : MonoBehaviour
@@ -23,63 +24,45 @@ public class script : MonoBehaviour
     */
 
     //Cannon AudioSources
-    private AudioSource LaunchSound;
-    private AudioSource NewLaunchSound;
-
+    private AudioSource LaunchSound, NewLaunchSound;
     //Bomb AudioSources
     private AudioSource BombExplosionSound;
-
     //WingGun AudioSources
-    private AudioSource WingGunSound;
-    private AudioSource NewWingGunSound;
-
+    private AudioSource WingGunSound, NewWingGunSound;
     //Minigun AudioSources
-    private AudioSource MinigunSound;
-    private AudioSource NewMinigunSound;
-
+    private AudioSource MinigunSound, NewMinigunSound;
     //Flare AudioSources
     private AudioSource FlareSound;
+    //Turbojet AudioSources
+    private AudioSource TurbojetSound, NewTurbojetSound;
 
     //General AudioClip
     public AudioClip MuteClip;
-
     //Cannon Audioclips
     public AnimationCurve Falloff;
     public AudioRolloffMode rolloffMode;
-    public AudioClip HeavyGunClip;
-    public AudioClip AutoCannonClip;
-    public AudioClip SmallCannonClip;
-    public AudioClip MediumCannonClip;
-    public AudioClip LargeCannonClip;
-    public AudioClip ArtilleryClip;
-    public AudioClip MediumArtilleryClip;
-    public AudioClip LargeArtilleryClip;
-    public AudioClip NavalGunClip;
-    public AudioClip LargeNavalGunClip;
-
+    public AudioClip HeavyGunClip, AutoCannonClip, SmallCannonClip, MediumCannonClip, LargeCannonClip, ArtilleryClip, MediumArtilleryClip, LargeArtilleryClip, NavalGunClip, LargeNavalGunClip;
     //Bomb Audioclips
-    public AudioClip NewBombExplosion_Close;
-    public AudioClip NewBombExplosion_Far;    
-
+    public AudioClip NewBombExplosion_Close, NewBombExplosion_Far;    
     //WingGun Audioclips
     public AudioClip NewWingGunClip;
-
     //Minigun Audioclips
-    public AudioClip NewMinigunClip_Start;
-    public AudioClip NewMinigunClip_Loop;
-    public AudioClip NewMinigunClip_End;
-
+    public AudioClip NewMinigunClip_Start, NewMinigunClip_Loop, NewMinigunClip_End;
     //Flare Audioclips
     public AudioClip NewFlareClip;
+    //Turbojet Audioclips
+    public AnimationCurve EngineFalloff;
+    public AudioRolloffMode engineRolloffMode;
+    public AudioClip NewTurbojetClip_Idle, NewTurbojetClip_On, NewTurbojetClip_Afterburner;
 
+    //AudioSource Lists
     List<LaunchSoundController> LaunchSoundList = new List<LaunchSoundController>();
     List<WingGunSoundController> WingGunSoundList = new List<WingGunSoundController>();
     List<MinigunSoundController> MinigunSoundList = new List<MinigunSoundController>();
+    List<TurbojetSoundController> AfterburningTurbojetSoundList = new List<TurbojetSoundController>();
 
-    private float CannonCaliber;
-
-    class LaunchSoundController
-    {
+    //Sound controllers
+    class LaunchSoundController {
         //Reference AudioSources
         public AudioSource OriginalLaunchSound;
         public AudioSource ReplacementLaunchSound;
@@ -90,8 +73,7 @@ public class script : MonoBehaviour
         public int CurrentAudioTime;
     }
 
-    class WingGunSoundController
-    {   
+    class WingGunSoundController {   
         //Reference AudioSources
         public AudioSource OriginalGunSound;
         public AudioSource ReplacementGunSound;
@@ -102,13 +84,31 @@ public class script : MonoBehaviour
         public float roundsPerSecond;
     }
     
-    class MinigunSoundController
-    {   
+    class MinigunSoundController {   
         //Reference AudioSources
         public AudioSource OriginalMinigunSound;
         public AudioSource ReplacementMinigunSound;
         //Firing Detection 
-        public bool LastWasPlaying;
+        public int state = 0;
+        public int prevState = 0;
+    }
+
+    class TurbojetSoundController {   
+        //Reference AudioSources
+        public AudioSource OriginalAfterburningTurbojetSound;
+        public AudioSource ReplacementAfterburningTurbojetSound;
+        public int state = 0;
+        public int prevState = 0;
+        /*
+        Reflection script field.
+        Contains the engine exhaust boolean and the afterburner percentage.
+        Relevant Accessors:
+            Engine on:
+                .SmokeSystemEmission.enabled
+            Afterburner percentage:
+                .AfterburningSmokeSystemEmission.enabled
+        */
+        public JetEngineAfterburningScript AfterburnerScript;
     }
         
     // Swaps out default cannon sound for a mute, soundless 250ms clip. Then creates replacement AudioSources to link the audioclips to.
@@ -129,7 +129,7 @@ public class script : MonoBehaviour
                 NewLaunchSound.rolloffMode = AudioRolloffMode.Custom;
                 NewLaunchSound.SetCustomCurve(AudioSourceCurveType.CustomRolloff, Falloff);
 
-                CannonCaliber = LaunchSound.transform.parent.Find("Base").localScale.x;
+                float CannonCaliber = LaunchSound.transform.parent.Find("Base").localScale.x;
                 if (CannonCaliber <= 0.026) {
                     //Up to 12.7mm
                     NewLaunchSound.clip = HeavyGunClip;
@@ -227,6 +227,8 @@ public class script : MonoBehaviour
                 //NewWingGun sound properties.
                 NewWingGunSound.spatialBlend = 1.0f;
                 NewWingGunSound.dopplerLevel = 0.0f;
+                NewWingGunSound.rolloffMode = AudioRolloffMode.Custom;
+                NewWingGunSound.SetCustomCurve(AudioSourceCurveType.CustomRolloff, Falloff);
 
                 NewWingGunSound.clip = NewWingGunClip;
 
@@ -293,6 +295,8 @@ public class script : MonoBehaviour
                 //NewMinigun sound properties.
                 NewMinigunSound.spatialBlend = 1.0f;
                 NewMinigunSound.dopplerLevel = 0.0f;
+                NewMinigunSound.rolloffMode = AudioRolloffMode.Custom;
+                NewMinigunSound.SetCustomCurve(AudioSourceCurveType.CustomRolloff, Falloff);
 
                 //Adding to reference lists
                 MinigunSoundController minigun = new MinigunSoundController();
@@ -305,19 +309,91 @@ public class script : MonoBehaviour
             }
         }
     }
-
     private void DetectMinigunFiring() {
         foreach (MinigunSoundController minigun in MinigunSoundList) {
-            //Checking for "started firing"
-            if (!minigun.LastWasPlaying && minigun.OriginalMinigunSound.isPlaying) {
-                minigun.ReplacementMinigunSound.clip = NewMinigunClip_Start;
-                float soundDelay = Vector3.Distance(minigun.OriginalMinigunSound.transform.parent.position, Camera.main.transform.position) / 343;
-                StartCoroutine(PlayAfterDelay(minigun.ReplacementMinigunSound, soundDelay, minigun.ReplacementMinigunSound.clip));
+
+            /*
+            Initial Standby State - 0
+            Start State - 1
+            Loop Check State - 2
+            Loop State - 3
+            Stop Check State - 4
+            Stop State - 5
+            */
+
+            if (minigun.state == 0) {
+                if (minigun.OriginalMinigunSound.isPlaying) {
+                    minigun.state = 1;
+                }
+                if (!minigun.OriginalMinigunSound.isPlaying) {
+                    minigun.state = 0;
+                }
             }
+            
+            //States have internal switches that are only active when they are in a new state
+            //Start State
+            if (minigun.state == 1) {
+                if (minigun.prevState != minigun.state) {
+                    float soundDelay = Vector3.Distance(minigun.OriginalMinigunSound.transform.parent.position, Camera.main.transform.position) / 343;
+                    //Coroutine for play start clip, wait length, and change state
+                    StartCoroutine(PlayMinigunStartSound(minigun, soundDelay));
+                }
+            }
+
+            //Loop State
+            if (minigun.state == 2) {
+                if (minigun.prevState != minigun.state) {
+                    float soundDelay = Vector3.Distance(minigun.OriginalMinigunSound.transform.parent.position, Camera.main.transform.position) / 343;
+                    //Coroutine for play loop sound, wait length, and change state
+                    StartCoroutine(PlayMinigunLoopSound(minigun, soundDelay));
+                }
+            }
+
+            //Stop State
+            if (minigun.state == 3) {
+                if (minigun.prevState != minigun.state) {
+                    float soundDelay = Vector3.Distance(minigun.OriginalMinigunSound.transform.parent.position, Camera.main.transform.position) / 343;
+                    //Coroutine for play stop sound, wait length, and change state
+                    StartCoroutine(PlayMinigunStopSound(minigun, soundDelay));
+                }
+            }
+
+            minigun.prevState = minigun.state;
+
         }
     }
 
-    
+    IEnumerator PlayMinigunStartSound(MinigunSoundController minigun, float time) {
+        StartCoroutine(PlayAfterDelay(minigun.ReplacementMinigunSound, time, NewMinigunClip_Start));
+        yield return new WaitForSeconds(time + NewMinigunClip_Start.length);
+        if (minigun.OriginalMinigunSound.isPlaying) {
+            //If still firing after start sound, go to loop
+            minigun.state = 2;
+        }
+        if (!minigun.OriginalMinigunSound.isPlaying) {
+            //If stopped firing after start, go to stop
+            minigun.state = 3;
+        }
+    }
+
+    IEnumerator PlayMinigunLoopSound(MinigunSoundController minigun, float time) {
+        StartCoroutine(PlayAfterDelay(minigun.ReplacementMinigunSound, time, NewMinigunClip_Loop));
+        yield return new WaitForSeconds(time + NewMinigunClip_Loop.length);
+        if (minigun.OriginalMinigunSound.isPlaying) {
+            //If still firing after a loop, go to loop again
+            minigun.state = 2;
+        }
+        if (!minigun.OriginalMinigunSound.isPlaying) {
+            //If stopped firing after a loop, go to stop
+            minigun.state = 3;
+        }
+    }
+
+    IEnumerator PlayMinigunStopSound(MinigunSoundController minigun, float time) {
+        StartCoroutine(PlayAfterDelay(minigun.ReplacementMinigunSound, time, NewMinigunClip_End));
+        yield return new WaitForSeconds(time + NewMinigunClip_End.length);
+        minigun.state = 0;
+    }
 
     private void ReplaceFlareSound() {
         AudioSources = FindObjectsOfType<AudioSource>();
@@ -326,6 +402,73 @@ public class script : MonoBehaviour
                 FlareSound = AS;
                 AS.clip = NewFlareClip;
             }
+        }
+    }
+
+    private void ReplaceTurbojetSound() {
+        AudioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource AS in AudioSources) {
+            if (AS.name == "AfterburningTurbojet") {
+                TurbojetSound = AS;
+                AS.clip = MuteClip;
+
+                NewTurbojetSound = AS.gameObject.AddComponent<AudioSource>();
+                NewTurbojetSound.spatialBlend = 1.0f;
+                NewTurbojetSound.dopplerLevel = 0.1f;
+                NewTurbojetSound.rolloffMode = AudioRolloffMode.Custom;
+                NewTurbojetSound.SetCustomCurve(AudioSourceCurveType.CustomRolloff, EngineFalloff);
+                NewTurbojetSound.loop = true;
+
+                NewTurbojetSound.clip = NewTurbojetClip_Idle;
+                NewTurbojetSound.Play();
+
+                TurbojetSoundController turbojet = new TurbojetSoundController();
+                turbojet.OriginalAfterburningTurbojetSound = TurbojetSound;
+                turbojet.ReplacementAfterburningTurbojetSound = NewTurbojetSound;
+
+                JetEngineAfterburningScript AfterburningEngineScript = JetEngineAfterburningScript.Wrap(AS.GetComponentInParent(JetEngineAfterburningScript.RealType));
+                turbojet.AfterburnerScript = AfterburningEngineScript;
+
+                AfterburningTurbojetSoundList.Add(turbojet);
+            }
+        }
+    }
+
+    private void PlayTurbojetSound() {
+        foreach (TurbojetSoundController turbojet in AfterburningTurbojetSoundList) {
+            if (!turbojet.AfterburnerScript.SmokeSystemEmission.enabled && !turbojet.AfterburnerScript.AfterburningSmokeSystemEmission.enabled) {
+                turbojet.state = 0;
+                turbojet.ReplacementAfterburningTurbojetSound.volume = 0.02f;
+                turbojet.ReplacementAfterburningTurbojetSound.clip = NewTurbojetClip_Idle;
+                if (turbojet.state != turbojet.prevState) {
+                    turbojet.ReplacementAfterburningTurbojetSound.Stop();
+                    turbojet.ReplacementAfterburningTurbojetSound.Play();
+                    Debug.Log("Successfully began playing idle sound.");
+                }
+            } else if (turbojet.AfterburnerScript.SmokeSystemEmission.enabled && !turbojet.AfterburnerScript.AfterburningSmokeSystemEmission.enabled) {
+                turbojet.state = 1;
+                turbojet.ReplacementAfterburningTurbojetSound.volume = 0.1f + 0.9f * turbojet.AfterburnerScript.EngineAudioSource.volume;
+                turbojet.ReplacementAfterburningTurbojetSound.pitch = 0.8f + turbojet.AfterburnerScript.EngineAudioSource.volume;
+                turbojet.ReplacementAfterburningTurbojetSound.clip = NewTurbojetClip_On;
+                if (turbojet.state != turbojet.prevState) {
+                    turbojet.ReplacementAfterburningTurbojetSound.Stop();
+                    turbojet.ReplacementAfterburningTurbojetSound.Play();
+                    Debug.Log("Successfully began playing jet sound.");
+                }
+            } else if (turbojet.AfterburnerScript.AfterburningSmokeSystemEmission.enabled) {
+                turbojet.state = 2;
+                turbojet.ReplacementAfterburningTurbojetSound.volume = 1.0f;
+                turbojet.ReplacementAfterburningTurbojetSound.clip = NewTurbojetClip_Afterburner;
+                if (turbojet.state != turbojet.prevState) {
+                    turbojet.ReplacementAfterburningTurbojetSound.Stop();
+                    turbojet.ReplacementAfterburningTurbojetSound.Play();
+                    Debug.Log("Successfully began playing afterburner sound.");
+                }
+            }
+            turbojet.prevState = turbojet.state;
+            //Status Readout
+            Debug.Log("___________________________________________________________________");
+            Debug.Log("SOUND STATUS: " + turbojet.state + " | EXHAUST STATUS: " + turbojet.AfterburnerScript.SmokeSystemEmission.enabled + " | AFTERBURNER STATUS: " + turbojet.AfterburnerScript.AfterburningSmokeSystemEmission.enabled);
         }
     }
 
@@ -340,7 +483,9 @@ public class script : MonoBehaviour
     private void AudioSourceTest() {
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources) {
-            Debug.Log(AS.name);
+            if (AS.isPlaying) {
+                Debug.Log(AS.name);
+            } 
         }
     }
 
@@ -351,6 +496,7 @@ public class script : MonoBehaviour
         Invoke("ReplaceMinigunSound",1.0f);
         Invoke("ReplaceFlareSound",1.0f);
         Invoke("ReplaceBombExplosion",1.0f);
+        Invoke("ReplaceTurbojetSound",1.0f);
         //Invoke("AudioSourceTest",1.0f);
     }
 
@@ -369,6 +515,9 @@ public class script : MonoBehaviour
         }
         if ((BombExplosionSound != null) && (Time.timeScale != 0)) {
             ReplaceBombExplosion();
+        }
+        if ((TurbojetSound != null) && (Time.timeScale != 0)) {
+            PlayTurbojetSound();
         }
     }
 

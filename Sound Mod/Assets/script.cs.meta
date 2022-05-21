@@ -17,9 +17,14 @@ MonoImporter:
   - LargeNavalGunClip: {fileID: 8300000, guid: d335ae25485ce8f4bb225842b9de46ce, type: 3}
   - NewBombExplosion_Close: {fileID: 8300000, guid: 53d228ea9a6567d4498cccb5066d5f10, type: 3}
   - NewBombExplosion_Far: {fileID: 8300000, guid: 3a9885299d46a4546951083c56016a39, type: 3}
-  - NewWingGunClip: {fileID: 8300000, guid: 359b6f77a61b9944e81193a6fc1f6c4f, type: 3}
-  - NewMinigunClip: {fileID: 8300000, guid: e59182fe912ca9647bd0648a7a8e47dd, type: 3}
+  - NewWingGunClip: {fileID: 8300000, guid: c391c5a52d70e604096dd9465b277768, type: 3}
+  - NewMinigunClip_Start: {fileID: 8300000, guid: dc839e662fc192045ad8e4e5ef0e664b, type: 3}
+  - NewMinigunClip_Loop: {fileID: 8300000, guid: 577ca1c263c9a06478c0d4ad48179b13, type: 3}
+  - NewMinigunClip_End: {fileID: 8300000, guid: 1cc8c148eec1d1d4a8fced40a335b149, type: 3}
   - NewFlareClip: {fileID: 8300000, guid: 7930b81e8dae71546a24721fb0ed4e5e, type: 3}
+  - NewTurbojetClip_Idle: {fileID: 8300000, guid: 4f3a84c1df8943a4b87a8fdc64f1d1b5, type: 3}
+  - NewTurbojetClip_On: {fileID: 8300000, guid: 9406eda43a917e14ba2a48ad1afbec56, type: 3}
+  - NewTurbojetClip_Afterburner: {fileID: 8300000, guid: 2889ef19de163284a80443cc8eb2d51f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ModManifest buildID="e0957391-7907-4cf3-89f1-636484274400">
-  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="0" versionMinor="9" loadPriority="1000" lastUpdated="2022-04-17T01:51:07.322534Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
+<ModManifest buildID="812ba4ed-9749-4b36-9f09-fa4a9cb3b4f2">
+  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="0" versionMinor="9" loadPriority="1000" lastUpdated="2022-05-20T14:51:06.6728568Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>
@@ -47,12 +47,23 @@
       <Asset path="Assets/NewSFX/CannonSFX/75mm.mp3" />
       <Asset path="Assets/NewSFX/FlareSFX/NewFlareClip.mp3" />
       <Asset path="Assets/NewSFX/GunSFX/NewGunClip.mp3" />
+      <Asset path="Assets/NewSFX/GunSFX/NewGunClip.wav" />
       <Asset path="Assets/NewSFX/GunSFX/NewWingGun.mp3" />
       <Asset path="Assets/NewSFX/GunSFX/WingGun_Loop.wav" />
+      <Asset path="Assets/NewSFX/MinigunSFX/NewMinigun_End.wav" />
+      <Asset path="Assets/NewSFX/MinigunSFX/NewMinigun_Loop.wav" />
+      <Asset path="Assets/NewSFX/MinigunSFX/NewMinigun_Start.wav" />
       <Asset path="Assets/NewSFX/MinigunSFX/NewMinigunClip_End.wav" />
       <Asset path="Assets/NewSFX/MinigunSFX/NewMinigunClip_Loop.wav" />
       <Asset path="Assets/NewSFX/MinigunSFX/NewMinigunClip_Start.wav" />
       <Asset path="Assets/NewSFX/MinigunSFX/NewMinigunShot.wav" />
+      <Asset path="Assets/NewSFX/nullsound.mp3" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/Engine_Afterburner.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/Engine_Idle.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/Engine_On.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/EngineIdle.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/JetWhine.mp3" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/JetWhine.wav" />
       <Asset path="Assets/nullsound.mp3" />
     </Assets>
     <MaterialShaderMap />

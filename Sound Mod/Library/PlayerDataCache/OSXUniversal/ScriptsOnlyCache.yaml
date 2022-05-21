@@ -35,9 +35,9 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2698}
+      Script: {instanceID: 2734}
     - Class: 114
-      Script: {instanceID: 3098}
+      Script: {instanceID: 3144}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -449,7 +449,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: c335a53caba07faac74c2ee9e1136564
+      Hash: a5658f48628642a1e5d2e734f3f7bca0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: script
@@ -624,4 +624,4 @@ ScriptsOnlyBuild:
   platform: 2
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/JOSHUA~1/AppData/Local/Temp/09601a2c-f64e-4762-87f6-8ed0f4fa7e96/Mod.exe
+  playerPath: C:/Users/JOSHUA~1/AppData/Local/Temp/281b0238-857b-4bb6-a436-ddce848570ee/Mod.exe
