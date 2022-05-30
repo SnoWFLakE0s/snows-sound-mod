@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ModManifest buildID="812ba4ed-9749-4b36-9f09-fa4a9cb3b4f2">
-  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="0" versionMinor="9" loadPriority="1000" lastUpdated="2022-05-20T14:51:06.6728568Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
+<ModManifest buildID="8e84742a-77f8-4102-a05c-e196bea6ba1b">
+  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="202205" versionMinor="29" loadPriority="1000" lastUpdated="2022-05-30T05:56:13.850367Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>
@@ -61,6 +61,7 @@
       <Asset path="Assets/NewSFX/TurbojetSFX/Engine_Afterburner.wav" />
       <Asset path="Assets/NewSFX/TurbojetSFX/Engine_Idle.wav" />
       <Asset path="Assets/NewSFX/TurbojetSFX/Engine_On.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/Engine_Start.wav" />
       <Asset path="Assets/NewSFX/TurbojetSFX/EngineIdle.wav" />
       <Asset path="Assets/NewSFX/TurbojetSFX/JetWhine.mp3" />
       <Asset path="Assets/NewSFX/TurbojetSFX/JetWhine.wav" />

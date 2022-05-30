@@ -22,9 +22,10 @@ MonoImporter:
   - NewMinigunClip_Loop: {fileID: 8300000, guid: 577ca1c263c9a06478c0d4ad48179b13, type: 3}
   - NewMinigunClip_End: {fileID: 8300000, guid: 1cc8c148eec1d1d4a8fced40a335b149, type: 3}
   - NewFlareClip: {fileID: 8300000, guid: 7930b81e8dae71546a24721fb0ed4e5e, type: 3}
+  - NewTurbojetClip_Start: {fileID: 8300000, guid: b9f739b3ab4c84261b705395c278dc28, type: 3}
   - NewTurbojetClip_Idle: {fileID: 8300000, guid: 4f3a84c1df8943a4b87a8fdc64f1d1b5, type: 3}
   - NewTurbojetClip_On: {fileID: 8300000, guid: 9406eda43a917e14ba2a48ad1afbec56, type: 3}
-  - NewTurbojetClip_Afterburner: {fileID: 8300000, guid: 2889ef19de163284a80443cc8eb2d51f, type: 3}
+  - NewTurbojetClip_Afterburner: {fileID: 8300000, guid: 434de873ecbf140d4a73205d1474121f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3418155068
+CRC: 2695608277
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: d24b746fa4acd0710054b119940204fb
+    Hash: 4157f73df258ff4a11ee6421d8499263
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0dac77019aea06e486d031f76cf02974
@@ -23,7 +23,9 @@ ClassTypes:
   Script: {fileID: 148421896, guid: 0ae1b6aafcdc6bc46b35491a5c18721e, type: 3}
 - Class: 115
   Script: {instanceID: 0}
-SerializeReferenceClassIdentifiers: []
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Jundroo.ModTools
+  ClassName: Jundroo.ModTools.Serialization.ObjectExportHelper/CustomScript
 Assets:
 - Assets/_ModAssets_/ModManifest.xml
 - Assets/NewSFX/MinigunSFX/NewMinigun_Start.wav
@@ -33,6 +35,7 @@ Assets:
 - Assets/NewSFX/CannonSFX/250mm.wav
 - Assets/NewSFX/CannonSFX/125mm.wav
 - Assets/NewSFX/nullsound.mp3
+- Assets/NewSFX/TurbojetSFX/Engine_Afterburner.wav
 - Assets/NewSFX/CannonSFX/175mm.wav
 - Assets/NewSFX/CannonSFX/75mm.mp3
 - Assets/NewSFX/BombSFX/BombExplosion_Close.wav
@@ -40,8 +43,8 @@ Assets:
 - Assets/NewSFX/CannonSFX/30mm.wav
 - Assets/NewSFX/FlareSFX/NewFlareClip.mp3
 - Assets/NewSFX/CannonSFX/150mm.mp3
+- Assets/NewSFX/TurbojetSFX/Engine_Start.wav
 - Assets/NewSFX/GunSFX/NewGunClip.wav
-- Assets/NewSFX/TurbojetSFX/Engine_Afterburner.wav
 - Assets/_ModAssets_/SoundPlus-Assembly-CSharp.dll.bytes
 - Assets/NewSFX/MinigunSFX/NewMinigun_Loop.wav
 - Assets/NewSFX/TurbojetSFX/Engine_On.wav

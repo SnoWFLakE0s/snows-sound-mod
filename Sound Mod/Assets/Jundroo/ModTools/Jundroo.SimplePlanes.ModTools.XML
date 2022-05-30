@@ -1082,6 +1082,96 @@
             The delete part input.
             </value>
         </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerCameraInOut">
+            <summary>
+            Gets the designer camera in/out input.
+            </summary>
+            <value>The designer camera in/out input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerCameraLeftRight">
+            <summary>
+            Gets the designer camera left/right input.
+            </summary>
+            <value>The designer camera left/right input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerCameraRotateLeftRight">
+            <summary>
+            Gets the designer camera rotate left/right input.
+            </summary>
+            <value>The designer camera rotate left/right input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerCameraRotateUpDown">
+            <summary>
+            Gets the designer camera rotate up/down input.
+            </summary>
+            <value>The designer camera rotate up/down input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerCameraSwitchMode">
+            <summary>
+            Gets the designer camera switch mode input.
+            </summary>
+            <value>The designer camera switch mode input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerCameraTranslateInOut">
+            <summary>
+            Gets the designer camera translate in/out input.
+            </summary>
+            <value>The designer camera translate in/out input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerCameraTranslateLeftRight">
+            <summary>
+            Gets the designer camera translate left/right input.
+            </summary>
+            <value>The designer camera translate left/right input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerCameraTranslateUpDown">
+            <summary>
+            Gets the designer camera translate up/down input.
+            </summary>
+            <value>The designer camera translate up/down input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerCameraUpDown">
+            <summary>
+            Gets the designer camera up/down input.
+            </summary>
+            <value>The designer camera up/down input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerCameraZoom">
+            <summary>
+            Gets the designer camera zoom input.
+            </summary>
+            <value>The designer camera zoom input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerManipulatePartNegative">
+            <summary>
+            Gets the designer manipulate part negative axis input.
+            </summary>
+            <value>The designer manipulate part negative axis input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerManipulatePartNextMode">
+            <summary>
+            Gets the designer manipulate part next mode input.
+            </summary>
+            <value>The designer manipulate part next mode input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerManipulatePartPositive">
+            <summary>
+            Gets the designer manipulate part postive axis input.
+            </summary>
+            <value>The designer manipulate part positive axis input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerManipulatePartPreviousMode">
+            <summary>
+            Gets the designer manipulate part previous mode input.
+            </summary>
+            <value>The designer manipulate part previous mode input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerPartSelectAndFocus">
+            <summary>
+            Gets the designer part select and focus input.
+            </summary>
+            <value>The designer part select and focus input.</value>
+        </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerPitch">
             <summary>
             Gets the pitch input for the designer.
@@ -1097,6 +1187,12 @@
             <value>
             The roll input for the designer.
             </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerToggleMenu">
+            <summary>
+            Gets the designer toggle menu input.
+            </summary>
+            <value>The designer toggle menu input.</value>
         </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.DesignerYaw">
             <summary>
@@ -1129,6 +1225,12 @@
             <value>
             The fire weapons input.
             </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.FlightToggleMenu">
+            <summary>
+            Gets the designer toggle menu input.
+            </summary>
+            <value>The designer toggle menu input.</value>
         </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Input.IGameInputs.FlybyView">
             <summary>
@@ -9217,6 +9319,96 @@
             The delete part input.
             </value>
         </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerCameraInOut">
+            <summary>
+            Gets or sets the designer camera in/out input.
+            </summary>
+            <value>The designer camera in/out input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerCameraLeftRight">
+            <summary>
+            Gets or sets the designer camera left/right input.
+            </summary>
+            <value>The designer camera left/right input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerCameraRotateLeftRight">
+            <summary>
+            Gets or sets the designer camera rotate left/right input.
+            </summary>
+            <value>The designer camera rotate left/right input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerCameraRotateUpDown">
+            <summary>
+            Gets or sets the designer camera rotate up/down input.
+            </summary>
+            <value>The designer camera rotate up/down input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerCameraSwitchMode">
+            <summary>
+            Gets or sets the designer camera switch mode input.
+            </summary>
+            <value>The designer camera switch mode input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerCameraTranslateInOut">
+            <summary>
+            Gets or sets the designer camera translate in/out input.
+            </summary>
+            <value>The designer camera translate in/out input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerCameraTranslateLeftRight">
+            <summary>
+            Gets or sets the designer camera translate left/right input.
+            </summary>
+            <value>The designer camera translate left/right input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerCameraTranslateUpDown">
+            <summary>
+            Gets or sets the designer camera translate up/down input.
+            </summary>
+            <value>The designer camera translate up/down input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerCameraUpDown">
+            <summary>
+            Gets or sets the designer camera up/down input.
+            </summary>
+            <value>The designer camera up/down input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerCameraZoom">
+            <summary>
+            Gets or sets the designer camera zoom input.
+            </summary>
+            <value>The designer camera zoom input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerManipulatePartNegative">
+            <summary>
+            Gets or sets the designer manipulate part negative axis input.
+            </summary>
+            <value>The designer manipulate part negative axis input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerManipulatePartNextMode">
+            <summary>
+            Gets or sets the designer manipulate part next mode input.
+            </summary>
+            <value>The designer manipulate part next mode input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerManipulatePartPositive">
+            <summary>
+            Gets or sets the designer manipulate part postive axis input.
+            </summary>
+            <value>The designer manipulate part positive axis input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerManipulatePartPreviousMode">
+            <summary>
+            Gets or sets the designer manipulate part previous mode input.
+            </summary>
+            <value>The designer manipulate part previous mode input.</value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerPartSelectAndFocus">
+            <summary>
+            Gets or sets the designer part select and focus input.
+            </summary>
+            <value>The designer part select and focus input.</value>
+        </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerPitch">
             <summary>
             Gets or sets the pitch input for the designer.
@@ -9232,6 +9424,12 @@
             <value>
             The roll input for the designer.
             </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerToggleMenu">
+            <summary>
+            Gets or sets the designer toggle menu input.
+            </summary>
+            <value>The designer toggle menu input.</value>
         </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.DesignerYaw">
             <summary>
@@ -9264,6 +9462,12 @@
             <value>
             The fire weapons input.
             </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.FlightToggleMenu">
+            <summary>
+            Gets or sets the flight toggle menu input.
+            </summary>
+            <value>The flight toggle menu input.</value>
         </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameInputsMock.FlybyView">
             <summary>
