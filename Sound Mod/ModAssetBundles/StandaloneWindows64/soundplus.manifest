@@ -1,9 +1,17 @@
 ManifestFileVersion: 0
+<<<<<<< Updated upstream
 CRC: 2540617322
 Hashes:
   AssetFileHash:
     serializedVersion: 2
     Hash: 22927419f33310e1dbfd99b3e8e202c0
+=======
+CRC: 90854453
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: dabc089d6306de6beb430631524d9f55
+>>>>>>> Stashed changes
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0dac77019aea06e486d031f76cf02974
@@ -42,6 +50,12 @@ Assets:
 - Assets/NewSFX/CannonSFX/30mm.wav
 - Assets/NewSFX/FlareSFX/NewFlareClip.mp3
 - Assets/NewSFX/CannonSFX/150mm.mp3
+<<<<<<< Updated upstream
+=======
+- Assets/NewSFX/TurbojetSFX/Engine_Start.wav
+- Assets/NewSFX/SonicBoomSFX/SonicBoom.wav
+- Assets/NewSFX/GunSFX/NewGunClip.wav
+>>>>>>> Stashed changes
 - Assets/_ModAssets_/SoundPlus-Assembly-CSharp.dll.bytes
 - Assets/NewSFX/CannonSFX/50mm.mp3
 - Assets/_ModAssets_/ModManifest.xml

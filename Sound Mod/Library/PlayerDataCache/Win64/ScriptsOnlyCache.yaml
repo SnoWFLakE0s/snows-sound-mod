@@ -452,9 +452,19 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       Hash: efd8adb9db00ae69be23a03a20a82e9e
 =======
       Hash: 8a19dad86cf1b82d18bdf5af96850279
+>>>>>>> Stashed changes
+=======
+      Hash: d251bf88db6c95a6b1aa0b69298da9ef
+    assemblyName: UnityEngine.SpatialTracking.dll
+    namespaceName: UnityEngine.SpatialTracking
+    className: TrackedPoseDriver
+  - hash:
+      serializedVersion: 2
+      Hash: 8144e187e79a357c773bdfcec6cfcce9
 >>>>>>> Stashed changes
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -631,7 +641,11 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   playerPath: C:/Users/joshu/AppData/Local/Temp/d833fab1-8a67-4005-9a3d-c6be321c8896/Mod.exe
 =======
   playerPath: C:/Users/JOSHUA~1/AppData/Local/Temp/c187ac1d-8e56-4a68-923f-04529462745a/Mod.exe
+>>>>>>> Stashed changes
+=======
+  playerPath: /var/folders/90/mx27_z357gqccm5ln7t8z_sm0000gn/T/b7d984a0-5061-4404-895d-9b1e083dc036/Mod.exe
 >>>>>>> Stashed changes

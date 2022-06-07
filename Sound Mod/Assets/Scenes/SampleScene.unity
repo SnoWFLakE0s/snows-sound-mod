@@ -166,13 +166,19 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
+<<<<<<< Updated upstream
       value: 1
       inSlope: -0.00025369637
       outSlope: -0.00025369637
+=======
+      value: 0.9
+      inSlope: -0.0017568265
+      outSlope: -0.0017568265
+>>>>>>> Stashed changes
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 1
+      outWeight: 0.10701546
     - serializedVersion: 3
       time: 500
       value: 0.3
@@ -193,12 +199,12 @@ MonoBehaviour:
       outWeight: 0.15641813
     - serializedVersion: 3
       time: 3000
-      value: 0
-      inSlope: -0.000068998146
-      outSlope: -0.000068998146
+      value: 0.02
+      inSlope: -0.000018152383
+      outSlope: -0.000018152383
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.63331896
+      inWeight: 1
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -221,6 +227,48 @@ MonoBehaviour:
   NewMinigunClip_Loop: {fileID: 8300000, guid: f326a6b749dec344e8c92861c0d68e30, type: 3}
   NewMinigunClip_End: {fileID: 8300000, guid: 9e0e494351a742547b1afcad0848d26d, type: 3}
   NewFlareClip: {fileID: 8300000, guid: 7930b81e8dae71546a24721fb0ed4e5e, type: 3}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+  EngineFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.0008265043
+      outSlope: -0.0008265043
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.24160482
+    - serializedVersion: 3
+      time: 1500
+      value: 0.4
+      inSlope: -0.00065320404
+      outSlope: -0.00065320404
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.48133838
+      outWeight: 0.122473225
+    - serializedVersion: 3
+      time: 3000
+      value: 0.03
+      inSlope: -0.000055227243
+      outSlope: -0.000055227243
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12841862
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  engineRolloffMode: 2
+  NewTurbojetClip_Start: {fileID: 8300000, guid: b9f739b3ab4c84261b705395c278dc28, type: 3}
+  NewTurbojetClip_Idle: {fileID: 8300000, guid: 4f3a84c1df8943a4b87a8fdc64f1d1b5, type: 3}
+  NewTurbojetClip_On: {fileID: 8300000, guid: 9406eda43a917e14ba2a48ad1afbec56, type: 3}
+  NewTurbojetClip_Afterburner: {fileID: 8300000, guid: 434de873ecbf140d4a73205d1474121f, type: 3}
+  SonicBoom: {fileID: 8300000, guid: 869cbfa06d9b24ce8a0d9128ba44b47d, type: 3}
 >>>>>>> Stashed changes
 --- !u!114 &223974228
 MonoBehaviour:

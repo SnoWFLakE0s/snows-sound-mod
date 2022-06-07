@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <ModManifest buildID="e828093c-3f7c-4133-95c2-e8c338317c52">
   <Mod name="Snows Sound Mod" author="SnoWFLakE0s" versionMajor="0" versionMinor="3" loadPriority="1000" lastUpdated="2022-02-18T17:42:18.3053055Z" apiVersion="1.0.0.0" description="A mod to replace some suboptimal sound effects.">
 =======
 <ModManifest buildID="9bc45edf-4526-433d-b219-df79abb99d6c">
   <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="0" versionMinor="9" loadPriority="1000" lastUpdated="2022-04-30T09:29:04.9870377Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
+>>>>>>> Stashed changes
+=======
+<ModManifest buildID="907842bd-ca75-4e60-a1f5-552da3bda5a3">
+  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="2206" versionMinor="6" loadPriority="1000" lastUpdated="2022-06-07T06:35:31.511225Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
 >>>>>>> Stashed changes
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
@@ -46,6 +51,18 @@
       <Asset path="Assets/NewSFX/MinigunSFX/NewMinigunClip_Start.wav" />
       <Asset path="Assets/NewSFX/MinigunSFX/NewMinigunShot.wav" />
       <Asset path="Assets/NewSFX/nullsound.mp3" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+      <Asset path="Assets/NewSFX/SonicBoomSFX/SonicBoom.ogg" />
+      <Asset path="Assets/NewSFX/SonicBoomSFX/SonicBoom.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/Engine_Afterburner.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/Engine_Idle.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/Engine_On.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/Engine_Start.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/EngineIdle.wav" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/JetWhine.mp3" />
+      <Asset path="Assets/NewSFX/TurbojetSFX/JetWhine.wav" />
 >>>>>>> Stashed changes
       <Asset path="Assets/nullsound.mp3" />
     </Assets>

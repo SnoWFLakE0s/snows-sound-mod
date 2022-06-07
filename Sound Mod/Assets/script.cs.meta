@@ -24,11 +24,22 @@ MonoImporter:
   - LargeNavalGunClip: {fileID: 8300000, guid: d335ae25485ce8f4bb225842b9de46ce, type: 3}
   - NewBombExplosion_Close: {fileID: 8300000, guid: 53d228ea9a6567d4498cccb5066d5f10, type: 3}
   - NewBombExplosion_Far: {fileID: 8300000, guid: 3a9885299d46a4546951083c56016a39, type: 3}
+<<<<<<< Updated upstream
   - NewWingGunClip: {fileID: 8300000, guid: 359b6f77a61b9944e81193a6fc1f6c4f, type: 3}
   - NewMinigunClip_Start: {fileID: 8300000, guid: ca3ced02f3e16044fa6e0ebb9ba2a7f4, type: 3}
   - NewMinigunClip_Loop: {fileID: 8300000, guid: f326a6b749dec344e8c92861c0d68e30, type: 3}
   - NewMinigunClip_End: {fileID: 8300000, guid: 9e0e494351a742547b1afcad0848d26d, type: 3}
   - NewFlareClip: {fileID: 8300000, guid: 7930b81e8dae71546a24721fb0ed4e5e, type: 3}
+>>>>>>> Stashed changes
+=======
+  - NewWingGunClip: {fileID: 8300000, guid: c391c5a52d70e604096dd9465b277768, type: 3}
+  - NewMinigunClip_Loop: {fileID: 8300000, guid: 577ca1c263c9a06478c0d4ad48179b13, type: 3}
+  - NewFlareClip: {fileID: 8300000, guid: 7930b81e8dae71546a24721fb0ed4e5e, type: 3}
+  - NewTurbojetClip_Start: {fileID: 8300000, guid: b9f739b3ab4c84261b705395c278dc28, type: 3}
+  - NewTurbojetClip_Idle: {fileID: 8300000, guid: 4f3a84c1df8943a4b87a8fdc64f1d1b5, type: 3}
+  - NewTurbojetClip_On: {fileID: 8300000, guid: 9406eda43a917e14ba2a48ad1afbec56, type: 3}
+  - NewTurbojetClip_Afterburner: {fileID: 8300000, guid: 434de873ecbf140d4a73205d1474121f, type: 3}
+  - SonicBoom: {fileID: 8300000, guid: 869cbfa06d9b24ce8a0d9128ba44b47d, type: 3}
 >>>>>>> Stashed changes
   executionOrder: 0
   icon: {instanceID: 0}
