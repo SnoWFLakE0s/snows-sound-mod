@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModManifest buildID="ef3e0059-12b5-4319-96bd-6b8a16645e34">
-  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="1" versionMinor="0" loadPriority="1000" lastUpdated="2022-06-07T13:33:03.194302Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
+  <Mod name="SoundPlus" author="SnoWFLakE0s" versionMajor="1" versionMinor="0" loadPriority="1000" lastUpdated="2022-06-07T14:05:48.091823Z" apiVersion="1.0.0.0" description="SoundPlus+ is a modular SFX enhancement system for SimplePlanes. Better sound systems, sound effects, and more.">
     <Steam title="" visibility="Public" previewPath="" language="English" tags="">
       <description></description>
     </Steam>
@@ -69,9 +69,7 @@
       <Asset path="Assets/nullsound.mp3" />
     </Assets>
     <MaterialShaderMap />
-    <Assemblies>
-      <Assembly name="SoundPlus-Assembly-CSharp.dll" path="Assets/_ModAssets_/SoundPlus-Assembly-CSharp.dll.bytes" isProjectAssembly="true" />
-    </Assemblies>
+    <Assemblies />
     <Sections>
       <SimplePlanesMod apiVersion="1.0.0.0">
         <Maps />
