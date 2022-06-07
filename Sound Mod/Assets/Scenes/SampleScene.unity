@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -153,32 +153,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7683c0961c51d4fb54c6ccd00f27f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  MuteSound: {fileID: 8300000, guid: cb62fe34196e052459b5175ad742f041, type: 3}
-  AutoCannonSound: {fileID: 8300000, guid: 2dc5533b07386c342a8861a265417719, type: 3}
-  LargeCannonSound: {fileID: 8300000, guid: 4540d172591ba8040b231efc7f3d14a5, type: 3}
-  ArtillerySound: {fileID: 8300000, guid: 3969fc00fce063b4793aadf876a8772c, type: 3}
-  NavalGunSound: {fileID: 8300000, guid: dafcf9c1fe5da0b41877e4d4ad33da22, type: 3}
-=======
   MuteClip: {fileID: 8300000, guid: cb62fe34196e052459b5175ad742f041, type: 3}
   Falloff:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-<<<<<<< Updated upstream
-      value: 1
+      value: 0.9
       inSlope: -0.00025369637
       outSlope: -0.00025369637
-=======
-      value: 0.9
-      inSlope: -0.0017568265
-      outSlope: -0.0017568265
->>>>>>> Stashed changes
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.10701546
+      outWeight: 1
     - serializedVersion: 3
       time: 500
       value: 0.3
@@ -199,12 +186,12 @@ MonoBehaviour:
       outWeight: 0.15641813
     - serializedVersion: 3
       time: 3000
-      value: 0.02
-      inSlope: -0.000018152383
-      outSlope: -0.000018152383
+      value: 0
+      inSlope: -0.000068998146
+      outSlope: -0.000068998146
       tangentMode: 0
       weightedMode: 0
-      inWeight: 1
+      inWeight: 0.63331896
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -222,43 +209,47 @@ MonoBehaviour:
   LargeNavalGunClip: {fileID: 8300000, guid: d335ae25485ce8f4bb225842b9de46ce, type: 3}
   NewBombExplosion_Close: {fileID: 8300000, guid: 53d228ea9a6567d4498cccb5066d5f10, type: 3}
   NewBombExplosion_Far: {fileID: 8300000, guid: 3a9885299d46a4546951083c56016a39, type: 3}
-  NewWingGunClip: {fileID: 8300000, guid: 359b6f77a61b9944e81193a6fc1f6c4f, type: 3}
-  NewMinigunClip_Start: {fileID: 8300000, guid: ca3ced02f3e16044fa6e0ebb9ba2a7f4, type: 3}
-  NewMinigunClip_Loop: {fileID: 8300000, guid: f326a6b749dec344e8c92861c0d68e30, type: 3}
-  NewMinigunClip_End: {fileID: 8300000, guid: 9e0e494351a742547b1afcad0848d26d, type: 3}
+  NewWingGunClip: {fileID: 8300000, guid: c391c5a52d70e604096dd9465b277768, type: 3}
+  NewMinigunClip_Loop: {fileID: 8300000, guid: 577ca1c263c9a06478c0d4ad48179b13, type: 3}
   NewFlareClip: {fileID: 8300000, guid: 7930b81e8dae71546a24721fb0ed4e5e, type: 3}
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
   EngineFalloff:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.0008265043
-      outSlope: -0.0008265043
+      inSlope: -0.00025369637
+      outSlope: -0.00025369637
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.24160482
+      outWeight: 1
     - serializedVersion: 3
-      time: 1500
-      value: 0.4
-      inSlope: -0.00065320404
-      outSlope: -0.00065320404
+      time: 525.71326
+      value: 0.840095
+      inSlope: -0.00031475135
+      outSlope: -0.00031475135
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.48133838
-      outWeight: 0.122473225
+      outWeight: 0.13271545
     - serializedVersion: 3
-      time: 3000
-      value: 0.03
-      inSlope: -0.000055227243
-      outSlope: -0.000055227243
+      time: 1671.9181
+      value: 0.20716679
+      inSlope: -0.0003506194
+      outSlope: -0.0003506194
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.12841862
+      inWeight: 0.24350607
+      outWeight: 0.14606604
+    - serializedVersion: 3
+      time: 3000
+      value: 0
+      inSlope: -0.000068998146
+      outSlope: -0.000068998146
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.63331896
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -268,8 +259,7 @@ MonoBehaviour:
   NewTurbojetClip_Idle: {fileID: 8300000, guid: 4f3a84c1df8943a4b87a8fdc64f1d1b5, type: 3}
   NewTurbojetClip_On: {fileID: 8300000, guid: 9406eda43a917e14ba2a48ad1afbec56, type: 3}
   NewTurbojetClip_Afterburner: {fileID: 8300000, guid: 434de873ecbf140d4a73205d1474121f, type: 3}
-  SonicBoom: {fileID: 8300000, guid: 869cbfa06d9b24ce8a0d9128ba44b47d, type: 3}
->>>>>>> Stashed changes
+  SonicBoom: {fileID: 8300000, guid: b4edec1771e1e41e3a3c47e378265e75, type: 3}
 --- !u!114 &223974228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,7 +457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
