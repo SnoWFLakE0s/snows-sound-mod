@@ -1,15 +1,7 @@
 ManifestFileVersion: 0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-CRC: 3703622682
-=======
-CRC: 169239154
->>>>>>> Stashed changes
-=======
-CRC: 2418424903
->>>>>>> Stashed changes
+CRC: 1197335287
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: snows sound mod
+      Name: soundplus
       Dependencies: {}
