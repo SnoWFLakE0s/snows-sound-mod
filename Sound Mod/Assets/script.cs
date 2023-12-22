@@ -242,7 +242,7 @@ public class script : MonoBehaviour
         }
     }
 
-    private void ReplaceBombExplosion()
+    private void PlayBombExplosion()
     {
         AudioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource AS in AudioSources)
@@ -250,7 +250,7 @@ public class script : MonoBehaviour
             if (AS.name == "BombExplosionSound")
             {
                 BombExplosionSound = AS;
-                if (Vector3.Distance(BombExplosionSound.transform.parent.position, Camera.main.transform.position) > 500)
+                if (Vector3.Distance(BombExplosionSound.transform.parent.position, Camera.main.transform.position) > 750)
                 {
                     AS.clip = NewBombExplosion_Far;
                 }
@@ -527,7 +527,7 @@ public class script : MonoBehaviour
             turbojet.SonicBoomSound = turbojet.EngineObject.gameObject.AddComponent<AudioSource>();
             turbojet.SonicBoomSound.clip = SonicBoom;
             turbojet.SonicBoomSound.dopplerLevel = 0.3f;
-            turbojet.SonicBoomSound.volume = 0.3f;
+            turbojet.SonicBoomSound.volume = 1.0f;
         }
     }
 
@@ -664,7 +664,6 @@ public class script : MonoBehaviour
         Invoke("ReplaceGunSound", 1.0f);
         Invoke("ReplaceMinigunSound", 1.0f);
         Invoke("ReplaceFlareSound", 1.0f);
-        Invoke("ReplaceBombExplosion", 1.0f);
         Invoke("ReplaceTurbojetSound", 1.0f);
         Invoke("AddSonicBoom", 1.0f);
         Invoke("AudioSourceTest",1.0f);
@@ -688,7 +687,7 @@ public class script : MonoBehaviour
         }
         if ((BombExplosionSound != null) && (Time.timeScale != 0))
         {
-            ReplaceBombExplosion();
+            PlayBombExplosion();
         }
         if ((TurbojetSound != null) && (Time.timeScale != 0))
         {

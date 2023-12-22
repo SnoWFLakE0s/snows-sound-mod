@@ -30,20 +30,20 @@
             The aircraft AI mode.
             </summary>
         </member>
-        <member name="P:Jundroo.SimplePlanes.ModTools.AI.AIAircraftSpawner.AircraftScript">
-            <summary>
-            Gets the aircraft script of the spawned aircraft.
-            </summary>
-            <value>
-            The aircraft script of the spawned aircraft.
-            </value>
-        </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.AI.AIAircraftSpawner.AIControlledAircraftScript">
             <summary>
             Gets the AI controlled aircraft script of the spawned aircraft.
             </summary>
             <value>
             The AI controlled aircraft script of the spawned aircraft.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.AI.AIAircraftSpawner.AircraftScript">
+            <summary>
+            Gets the aircraft script of the spawned aircraft.
+            </summary>
+            <value>
+            The aircraft script of the spawned aircraft.
             </value>
         </member>
         <member name="M:Jundroo.SimplePlanes.ModTools.AI.AIAircraftSpawner.Start">
@@ -501,22 +501,6 @@
             A designer button reference. This allows you to show or hide it and change other details.
             </summary>
         </member>
-        <member name="P:Jundroo.SimplePlanes.ModTools.IDesignerButton.Sprite">
-            <summary>
-            Gets or sets the sprite for the button.
-            </summary>
-            <value>
-            The sprite, which should be square.
-            </value>
-        </member>
-        <member name="P:Jundroo.SimplePlanes.ModTools.IDesignerButton.Tooltip">
-            <summary>
-            Gets or sets the tooltip.
-            </summary>
-            <value>
-            The tooltip, which is shown when the mouse hovers over the button.
-            </value>
-        </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.IDesignerButton.Callback">
             <summary>
             Gets or sets the callback that is invoked when the button is clicked.
@@ -531,6 +515,22 @@
             </summary>
             <value>
             <see langword="true"/> to show the button, else <see langword="false"/>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IDesignerButton.Sprite">
+            <summary>
+            Gets or sets the sprite for the button.
+            </summary>
+            <value>
+            The sprite, which should be square.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IDesignerButton.Tooltip">
+            <summary>
+            Gets or sets the tooltip.
+            </summary>
+            <value>
+            The tooltip, which is shown when the mouse hovers over the button.
             </value>
         </member>
         <member name="T:Jundroo.SimplePlanes.ModTools.WeatherPreset">
@@ -658,20 +658,20 @@
             A service for interacting with the current game camera.
             </summary>
         </member>
-        <member name="P:Jundroo.SimplePlanes.ModTools.IGameCamera.CameraTarget">
-            <summary>
-            Gets or sets the camera target.
-            </summary>
-            <value>
-            The camera target.
-            </value>
-        </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.IGameCamera.CameraPosition">
             <summary>
             Gets or sets the camera position.
             </summary>
             <value>
             The camera position.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.IGameCamera.CameraTarget">
+            <summary>
+            Gets or sets the camera target.
+            </summary>
+            <value>
+            The camera target.
             </value>
         </member>
         <member name="M:Jundroo.SimplePlanes.ModTools.IGameCamera.SetMainCameraEnabled(System.Boolean)">
@@ -780,7 +780,7 @@
             Requests a change in the pause state of the application.
             </summary>
             <param name="paused">
-            <c>true</c> if requesting that the application be paused. 
+            <c>true</c> if requesting that the application be paused.
             <c>false</c> if requesting that the application be un-paused.</param>
             <param name="userInitiated"><c>true</c> if this requested change in the pause state has been initiated by the user.</param>
             <returns>The new pause state of the game.</returns>
@@ -7905,6 +7905,15 @@
             The root game object for all UI elements.
             </value>
         </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.IUserInterface.CreateDesignerButton(UnityEngine.Sprite,System.String,System.Action)">
+            <summary>
+            Creates a designer button. Should be called when the designer is loaded.
+            </summary>
+            <param name="sprite">A square sprite that will be shown on the button.</param>
+            <param name="tooltip">The tooltip that is shown when the mouse hovers over the button.</param>
+            <param name="callback">The callback that is run when the button is clicked.</param>
+            <returns></returns>
+        </member>
         <member name="M:Jundroo.SimplePlanes.ModTools.IUserInterface.HideUIElement(Jundroo.SimplePlanes.ModTools.FlightUIElementType)">
             <summary>
             Hides the specified UI element (if shown).
@@ -7917,23 +7926,9 @@
             </summary>
             <param name="elementType">Type of the element to show.</param>
         </member>
-        <member name="M:Jundroo.SimplePlanes.ModTools.IUserInterface.CreateDesignerButton(UnityEngine.Sprite,System.String,System.Action)">
-            <summary>
-            Creates a designer button. Should be called when the designer is loaded.
-            </summary>
-            <param name="sprite">A square sprite that will be shown on the button.</param>
-            <param name="tooltip">The tooltip that is shown when the mouse hovers over the button.</param>
-            <param name="callback">The callback that is run when the button is clicked.</param>
-            <returns></returns>
-        </member>
         <member name="T:Jundroo.SimplePlanes.ModTools.Layers">
             <summary>
             Layers used in the game.
-            </summary>
-        </member>
-        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AircraftCollisionOnly">
-            <summary>
-            Layer that can only collide with the aircraft.
             </summary>
         </member>
         <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AircraftCollisionNone">
@@ -7941,14 +7936,19 @@
             Layer that cannot collide with the aircraft.
             </summary>
         </member>
-        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AircraftLayer">
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AircraftCollisionOnly">
             <summary>
-            The aircraft layer.
+            Layer that can only collide with the aircraft.
             </summary>
         </member>
         <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AircraftInteractable">
             <summary>
             The aircraft interactable layer.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AircraftLayer">
+            <summary>
+            The aircraft layer.
             </summary>
         </member>
         <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AttachPointLayerMaskAll">
@@ -7961,15 +7961,15 @@
             The attach point layer.
             </summary>
         </member>
-        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AttachPointLayerWingSurface">
-            <summary>
-            The attach point layer for a wing surface.
-            </summary>
-        </member>
         <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AttachPointLayerSurface">
             <summary>
             The attach point layer for a surface, which shares the same layer as explosions, but this is only used in the
             designer, where explosions should not occur.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AttachPointLayerWingSurface">
+            <summary>
+            The attach point layer for a wing surface.
             </summary>
         </member>
         <member name="F:Jundroo.SimplePlanes.ModTools.Layers.AttachPointWing">
@@ -8249,6 +8249,14 @@
             The elapsed time of the timer in seconds.
             </value>
         </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.LevelName">
+            <summary>
+            Gets the name of the level.
+            </summary>
+            <value>
+            The name of the level.
+            </value>
+        </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#LevelTime">
             <summary>
             Gets the time (in seconds) that the user has spent in the level (while not paused).
@@ -8267,6 +8275,14 @@
             This will be <c>null</c> if the current map is a built in map and not part of a mod.
             </value>
         </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.MapName">
+            <summary>
+            Gets the name of the map.
+            </summary>
+            <value>
+            The name of the map.
+            </value>
+        </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#StartLocation">
             <summary>
             Gets the start location for the level.
@@ -8281,6 +8297,14 @@
             </summary>
             <value>
             <c>true</c> if the timer should be started with the throttle; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Level.SupportedPlatform">
+            <summary>
+            Gets the supported platform(s) for the level.
+            </summary>
+            <value>
+            The supported platform(s) for the level.
             </value>
         </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#TimerCountdown">
@@ -8298,30 +8322,6 @@
             </summary>
             <value>
               <c>true</c> if the timer is enabled; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Jundroo.SimplePlanes.ModTools.Level.LevelName">
-            <summary>
-            Gets the name of the level.
-            </summary>
-            <value>
-            The name of the level.
-            </value>
-        </member>
-        <member name="P:Jundroo.SimplePlanes.ModTools.Level.MapName">
-            <summary>
-            Gets the name of the map.
-            </summary>
-            <value>
-            The name of the map.
-            </value>
-        </member>
-        <member name="P:Jundroo.SimplePlanes.ModTools.Level.SupportedPlatform">
-            <summary>
-            Gets the supported platform(s) for the level.
-            </summary>
-            <value>
-            The supported platform(s) for the level.
             </value>
         </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Level.ElapsedTime">
@@ -8383,6 +8383,11 @@
               <c>true</c> if the timer is enabled; otherwise, <c>false</c>.
             </value>
         </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#Awake">
+            <summary>
+            Awake is called when the level is being loaded.
+            </summary>
+        </member>
         <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#EndLevel(System.Boolean,System.String,System.Single)">
             <summary>
             Displays the end level dialog.
@@ -8394,30 +8399,6 @@
         <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#ExitLevel">
             <summary>
             Immediately exists the level and returns to the designer.
-            </summary>
-        </member>
-        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#PauseTimer(System.Boolean)">
-            <summary>
-            Changes the pause state of the timer to the specified value.
-            </summary>
-            <param name="pause">If set to <c>true</c>, the timer will be paused.
-            If set to <c>false</c>, the timer will not be paused.</param>
-        </member>
-        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#ResetTimer">
-            <summary>
-            Resets the timer.
-            </summary>
-        </member>
-        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#ShowMessage(System.String,System.Single)">
-            <summary>
-            Shows the specified message to the player.
-            </summary>
-            <param name="message">The message to show.</param>
-            <param name="lifetimeInSeconds">The lifetime of the message in seconds.</param>
-        </member>
-        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#Awake">
-            <summary>
-            Awake is called when the level is being loaded.
             </summary>
         </member>
         <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#FixedUpdate">
@@ -8449,6 +8430,25 @@
             <summary>
             Called when one of a player's aircraft parts enters the water.
             </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#PauseTimer(System.Boolean)">
+            <summary>
+            Changes the pause state of the timer to the specified value.
+            </summary>
+            <param name="pause">If set to <c>true</c>, the timer will be paused.
+            If set to <c>false</c>, the timer will not be paused.</param>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#ResetTimer">
+            <summary>
+            Resets the timer.
+            </summary>
+        </member>
+        <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IInternalLevelServices#ShowMessage(System.String,System.Single)">
+            <summary>
+            Shows the specified message to the player.
+            </summary>
+            <param name="message">The message to show.</param>
+            <param name="lifetimeInSeconds">The lifetime of the message in seconds.</param>
         </member>
         <member name="M:Jundroo.SimplePlanes.ModTools.Level.Jundroo#SimplePlanes#ModTools#IModLevelServices#Start">
             <summary>
@@ -8820,20 +8820,20 @@
             A mocked up testing class for the <see cref="T:Jundroo.SimplePlanes.ModTools.IGameCamera"/> service.
             </summary>
         </member>
-        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameCameraMock.CameraTarget">
-            <summary>
-            Gets or sets the camera target.
-            </summary>
-            <value>
-            The camera target.
-            </value>
-        </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameCameraMock.CameraPosition">
             <summary>
             Gets or sets the camera position.
             </summary>
             <value>
             The camera position.
+            </value>
+        </member>
+        <member name="P:Jundroo.SimplePlanes.ModTools.Mocks.GameCameraMock.CameraTarget">
+            <summary>
+            Gets or sets the camera target.
+            </summary>
+            <value>
+            The camera target.
             </value>
         </member>
         <member name="M:Jundroo.SimplePlanes.ModTools.Mocks.GameCameraMock.SetMainCameraEnabled(System.Boolean)">
@@ -10865,12 +10865,12 @@
             </summary>
             <param name="values">The list of values to be cycled through each time the user activates the button.</param>
         </member>
-        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyToggleButtonAttribute.Values">
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyToggleButtonAttribute.AllowFunkyInput">
             <summary>
-            Gets or sets the list of possible values to be cycled through.
+            Gets or sets a value indicating whether to allow funky input when ctrl clicking.
             </summary>
             <value>
-            The list of possible values to be cycled through.
+              <c>true</c> if [allow funky input]; otherwise, <c>false</c>.
             </value>
         </member>
         <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyToggleButtonAttribute.SilenceEnumCountMismatch">
@@ -10881,12 +10881,12 @@
               <c>true</c> if the error should be silenced; otherwise, <c>false</c>.
             </value>
         </member>
-        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyToggleButtonAttribute.AllowFunkyInput">
+        <member name="P:Jundroo.SimplePlanes.ModTools.Parts.Attributes.DesignerPropertyToggleButtonAttribute.Values">
             <summary>
-            Gets or sets a value indicating whether to allow funky input when ctrl clicking.
+            Gets or sets the list of possible values to be cycled through.
             </summary>
             <value>
-              <c>true</c> if [allow funky input]; otherwise, <c>false</c>.
+            The list of possible values to be cycled through.
             </value>
         </member>
         <member name="T:Jundroo.SimplePlanes.ModTools.Parts.Attributes.PartModifierDesignerHeaderAttribute">
@@ -11141,7 +11141,7 @@
         <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartAttachPoint.SurfaceColliderName">
             <summary>
             Gets or sets the name of the game object containing the surface attach point collider.
-            If this is a surface attach point, this should be set to the name of the game object containing the surface's collider. 
+            If this is a surface attach point, this should be set to the name of the game object containing the surface's collider.
             Setting this will ignore all other information set on this attach point and it will be treated as a special 'surface' attach point.
             </summary>
             <value>
@@ -11176,14 +11176,14 @@
             The cockpits category.
             </summary>
         </member>
-        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.Gizmos">
-            <summary>
-            The gizmos category.
-            </summary>
-        </member>
         <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.CockpitInterior">
             <summary>
             The interiors category.
+            </summary>
+        </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.Gizmos">
+            <summary>
+            The gizmos category.
             </summary>
         </member>
         <member name="F:Jundroo.SimplePlanes.ModTools.Parts.PartCategories.LandingGear">
@@ -12334,14 +12334,14 @@
             The type of the sinkable ship script.
             </summary>
         </member>
+        <member name="F:Jundroo.SimplePlanes.ModTools.PrefabProxies.ShipProxy._allies">
+            <summary>
+            The allies of this ship.
+            </summary>
+        </member>
         <member name="F:Jundroo.SimplePlanes.ModTools.PrefabProxies.ShipProxy._dynamicObjectId">
             <summary>
             The dynamic object identifier.
-            </summary>
-        </member>
-        <member name="F:Jundroo.SimplePlanes.ModTools.PrefabProxies.ShipProxy._targetName">
-            <summary>
-            The name of the target in the player's weapon system.
             </summary>
         </member>
         <member name="F:Jundroo.SimplePlanes.ModTools.PrefabProxies.ShipProxy._initiallyHostile">
@@ -12354,9 +12354,9 @@
             A value indicating whether the friendly/hostile status of a ship can be changed.
             </summary>
         </member>
-        <member name="F:Jundroo.SimplePlanes.ModTools.PrefabProxies.ShipProxy._allies">
+        <member name="F:Jundroo.SimplePlanes.ModTools.PrefabProxies.ShipProxy._targetName">
             <summary>
-            The allies of this ship.
+            The name of the target in the player's weapon system.
             </summary>
         </member>
         <member name="M:Jundroo.SimplePlanes.ModTools.PrefabProxies.ShipProxy.#ctor(System.String)">
@@ -13314,20 +13314,20 @@
             The current ammo count for the weapon.
             </value>
         </member>
-        <member name="P:Assets.Game.Weapons.IWeapon.CustomName">
-            <summary>
-            Gets the custom name of the weapon set by the user.
-            </summary>
-            <value>
-            The custom name.
-            </value>
-        </member>
         <member name="P:Assets.Game.Weapons.IWeapon.CurrentTarget">
             <summary>
             Gets or sets the current target for the weapon.
             </summary>
             <value>
             The current target for the weapon.
+            </value>
+        </member>
+        <member name="P:Assets.Game.Weapons.IWeapon.CustomName">
+            <summary>
+            Gets the custom name of the weapon set by the user.
+            </summary>
+            <value>
+            The custom name.
             </value>
         </member>
         <member name="P:Assets.Game.Weapons.IWeapon.Function">

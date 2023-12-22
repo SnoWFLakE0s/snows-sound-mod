@@ -1,12 +1,15 @@
 ManifestFileVersion: 0
-CRC: 1965629227
+CRC: 876134621
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 82c3a4035d0226cc9c9301344c097dcf
+    Hash: c21b2bcd85fbecc30e076e89450659e5
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 0dac77019aea06e486d031f76cf02974
+    Hash: 2bc32836d216822ee80e7155fa9b6ea0
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: c21b2bcd85fbecc30e076e89450659e5
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -18,17 +21,15 @@ ClassTypes:
 - Class: 83
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 463027472, guid: 3cde37892b4f7594bbbc3ac6c74ecab7, type: 3}
-- Class: 114
   Script: {fileID: 148421896, guid: 0ae1b6aafcdc6bc46b35491a5c18721e, type: 3}
+- Class: 114
+  Script: {fileID: 463027472, guid: 3cde37892b4f7594bbbc3ac6c74ecab7, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers:
 - AssemblyName: Jundroo.ModTools
   ClassName: Jundroo.ModTools.Serialization.ObjectExportHelper/CustomScript
 Assets:
-- Assets/_ModAssets_/ModManifest.xml
-- Assets/NewSFX/MinigunSFX/NewMinigun_Start.wav
 - Assets/NewSFX/BombSFX/BombExplosion_Far.wav
 - Assets/_ModAssets_/Sound Mod.prefab
 - Assets/NewSFX/SBSFX/SonicBoom.wav
@@ -50,7 +51,7 @@ Assets:
 - Assets/NewSFX/MinigunSFX/NewMinigun_Loop.wav
 - Assets/NewSFX/TurbojetSFX/Engine_On.wav
 - Assets/NewSFX/CannonSFX/50mm.mp3
-- Assets/NewSFX/MinigunSFX/NewMinigun_End.wav
+- Assets/_ModAssets_/ModManifest.xml
 - Assets/NewSFX/TurbojetSFX/Engine_Idle.wav
 - Assets/NewSFX/CannonSFX/200mm.mp3
 Dependencies: []

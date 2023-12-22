@@ -2399,14 +2399,6 @@
             The value read from the attribute.
             </returns>
         </member>
-        <member name="M:Jundroo.ModTools.Serialization.Xml.UnityXmlAttributeSerializer`1.Jundroo#ModTools#Serialization#Xml#IUnityXmlAttributeSerializer#WriteValue(System.Xml.Linq.XAttribute,System.Object,Jundroo.ModTools.Serialization.Xml.UnityXmlSerializerContext)">
-            <summary>
-            Writes the specified value to the XML attribute.
-            </summary>
-            <param name="attribute">The XML attribute to which the value should be written.</param>
-            <param name="value">The value to be written.</param>
-            <param name="context">The serialization context.</param>
-        </member>
         <member name="M:Jundroo.ModTools.Serialization.Xml.UnityXmlAttributeSerializer`1.ReadValue(System.Xml.Linq.XAttribute,System.Type,Jundroo.ModTools.Serialization.Xml.UnityXmlSerializerContext)">
             <summary>
             Reads the value from the specified XML attribute.
@@ -2417,6 +2409,14 @@
             <returns>
             The value read from the attribute.
             </returns>
+        </member>
+        <member name="M:Jundroo.ModTools.Serialization.Xml.UnityXmlAttributeSerializer`1.Jundroo#ModTools#Serialization#Xml#IUnityXmlAttributeSerializer#WriteValue(System.Xml.Linq.XAttribute,System.Object,Jundroo.ModTools.Serialization.Xml.UnityXmlSerializerContext)">
+            <summary>
+            Writes the specified value to the XML attribute.
+            </summary>
+            <param name="attribute">The XML attribute to which the value should be written.</param>
+            <param name="value">The value to be written.</param>
+            <param name="context">The serialization context.</param>
         </member>
         <member name="M:Jundroo.ModTools.Serialization.Xml.UnityXmlAttributeSerializer`1.WriteValue(System.Xml.Linq.XAttribute,`0,Jundroo.ModTools.Serialization.Xml.UnityXmlSerializerContext)">
             <summary>
@@ -2443,14 +2443,6 @@
             The value read from the element.
             </returns>
         </member>
-        <member name="M:Jundroo.ModTools.Serialization.Xml.UnityXmlElementSerializer`1.Jundroo#ModTools#Serialization#Xml#IUnityXmlElementSerializer#WriteValue(System.Xml.Linq.XElement,System.Object,Jundroo.ModTools.Serialization.Xml.UnityXmlSerializerContext)">
-            <summary>
-            Writes the specified value to the XML element.
-            </summary>
-            <param name="element">The XML element to which the value should be written.</param>
-            <param name="value">The value to be written.</param>
-            <param name="context">The serialization context.</param>
-        </member>
         <member name="M:Jundroo.ModTools.Serialization.Xml.UnityXmlElementSerializer`1.ReadValue(System.Xml.Linq.XElement,System.Type,Jundroo.ModTools.Serialization.Xml.UnityXmlSerializerContext)">
             <summary>
             Reads the value from the specified XML element.
@@ -2461,6 +2453,14 @@
             <returns>
             The value read from the element.
             </returns>
+        </member>
+        <member name="M:Jundroo.ModTools.Serialization.Xml.UnityXmlElementSerializer`1.Jundroo#ModTools#Serialization#Xml#IUnityXmlElementSerializer#WriteValue(System.Xml.Linq.XElement,System.Object,Jundroo.ModTools.Serialization.Xml.UnityXmlSerializerContext)">
+            <summary>
+            Writes the specified value to the XML element.
+            </summary>
+            <param name="element">The XML element to which the value should be written.</param>
+            <param name="value">The value to be written.</param>
+            <param name="context">The serialization context.</param>
         </member>
         <member name="M:Jundroo.ModTools.Serialization.Xml.UnityXmlElementSerializer`1.WriteValue(System.Xml.Linq.XElement,`0,Jundroo.ModTools.Serialization.Xml.UnityXmlSerializerContext)">
             <summary>

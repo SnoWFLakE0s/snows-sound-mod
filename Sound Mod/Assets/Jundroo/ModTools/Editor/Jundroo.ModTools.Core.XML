@@ -591,6 +591,16 @@
             The asset bundle offset for Android.
             </value>
         </member>
+        <member name="P:Jundroo.ModTools.Core.ModHeader.AssetBundleOffsetIOS">
+            <summary>
+            Gets the asset bundle offset for iOS.
+            This is the byte offset in the mod file at which the iOS asset bundle can be found.
+            If this is <c>null</c>, the mod file does not support the iOS platform.
+            </summary>
+            <value>
+            The asset bundle offset for iOS.
+            </value>
+        </member>
         <member name="P:Jundroo.ModTools.Core.ModHeader.AssetBundleOffsetLinux">
             <summary>
             Gets the asset bundle offset for Linux.
@@ -619,16 +629,6 @@
             </summary>
             <value>
             The asset bundle offset for Windows.
-            </value>
-        </member>
-        <member name="P:Jundroo.ModTools.Core.ModHeader.AssetBundleOffsetIOS">
-            <summary>
-            Gets the asset bundle offset for iOS.
-            This is the byte offset in the mod file at which the iOS asset bundle can be found.
-            If this is <c>null</c>, the mod file does not support the iOS platform.
-            </summary>
-            <value>
-            The asset bundle offset for iOS.
             </value>
         </member>
         <member name="M:Jundroo.ModTools.Core.ModHeader.Read(System.String)">
@@ -724,6 +724,14 @@
               <c>true</c> if enabled; otherwise, <c>false</c>.
             </value>
         </member>
+        <member name="P:Jundroo.ModTools.Core.ModInfo.IsBundledMod">
+            <summary>
+            Gets or sets a value indicating whether this instance is a bundled mod.
+            </summary>
+            <value>
+              <c>true</c> if this instance is a bundled mod; otherwise, <c>false</c>.
+            </value>
+        </member>
         <member name="P:Jundroo.ModTools.Core.ModInfo.IsLegacyMod">
             <summary>
             Gets a value indicating whether this mod is a legacy mod (created prior to the move to Unity 2018).
@@ -788,14 +796,6 @@
             </summary>
             <value>
             The version number of the mod.
-            </value>
-        </member>
-        <member name="P:Jundroo.ModTools.Core.ModInfo.IsBundledMod">
-            <summary>
-            Gets or sets a value indicating whether this instance is a bundled mod.
-            </summary>
-            <value>
-              <c>true</c> if this instance is a bundled mod; otherwise, <c>false</c>.
             </value>
         </member>
         <member name="T:Jundroo.ModTools.Core.ModLoadMessage">
